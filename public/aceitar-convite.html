@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<title>Aceitar convite - Aprimarus</title>
+<style>
+  body { font-family: 'Montserrat', sans-serif; padding: 60px 20px; text-align: center; color: #0A0A0A; max-width: 480px; margin: 0 auto; }
+  h1 { font-size: 1.5rem; margin-bottom: 1rem; }
+  #status { color: #555; }
+</style>
+</head>
+<body>
+  <h1>Aprimarus — Painel de publicação</h1>
+  <p id="status">Carregando convite...</p>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    netlifyIdentity.init();
+    netlifyIdentity.on('init', function (user) {
+      document.getElementById('status').textContent = user
+        ? 'Você já está logado como ' + user.email + '.'
+        : 'Se nada abrir automaticamente, recarregue a página.';
+    });
+    netlifyIdentity.on('login', function () {
+      window.location.href = '/admin/';
+    });
+    netlifyIdentity.on('error', function (err) {
+      document.getElementById('status').textContent = 'Erro: ' + (err && err.message ? err.message : err);
+    });
+  </script>
+</body>
+</html>
