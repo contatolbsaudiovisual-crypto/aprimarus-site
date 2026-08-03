@@ -7,7 +7,7 @@
 <style>
   body { font-family: 'Montserrat', Arial, sans-serif; padding: 60px 20px; text-align: center; color: #0A0A0A; max-width: 420px; margin: 0 auto; }
   h1 { font-size: 1.4rem; margin-bottom: 1.5rem; }
-  #status { color: #555; margin-bottom: 1.5rem; }
+  #status { color: #555; margin-bottom: 1.5rem; white-space: pre-wrap; }
   input[type="password"] { width: 100%; padding: 12px 14px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; margin-bottom: 12px; box-sizing: border-box; }
   button { width: 100%; padding: 12px 14px; background: #620000; color: #fff; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; }
   button:disabled { opacity: 0.6; cursor: default; }
@@ -34,7 +34,26 @@
     var form = document.getElementById('pwForm');
     var submitBtn = document.getElementById('submitBtn');
 
+    // Remove o hash ANTES de inicializar o widget, pra ele não abrir
+    // sozinho o modal nativo (que às vezes mostra uma sessão antiga
+    // salva no navegador em vez do formulário de senha nova).
+    if (token) {
+      history.replaceState(null, '', location.pathname);
+    }
+
+    // Limpa qualquer sessão antiga guardada no navegador pra esse site.
+    try {
+      Object.keys(localStorage).forEach(function (k) {
+        if (k.toLowerCase().indexOf('gotrue') !== -1 || k.toLowerCase().indexOf('netlify') !== -1) {
+          localStorage.removeItem(k);
+        }
+      });
+    } catch (e) {}
+
     netlifyIdentity.init();
+    if (netlifyIdentity.currentUser()) {
+      netlifyIdentity.logout();
+    }
 
     if (!token) {
       statusEl.textContent = 'Nenhum convite encontrado nesse link. Volte no e-mail e clique em "Accept the invite" de novo.';
