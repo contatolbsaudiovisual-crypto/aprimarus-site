@@ -3,29 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="robots" content="noindex">
-<title>Aceitar convite - Aprimarus</title>
+<title>Definir senha - Aprimarus</title>
 <style>
-  body { font-family: 'Montserrat', sans-serif; padding: 60px 20px; text-align: center; color: #0A0A0A; max-width: 480px; margin: 0 auto; }
-  h1 { font-size: 1.5rem; margin-bottom: 1rem; }
-  #status { color: #555; }
+  body { font-family: 'Montserrat', Arial, sans-serif; padding: 60px 20px; text-align: center; color: #0A0A0A; max-width: 420px; margin: 0 auto; }
+  h1 { font-size: 1.4rem; margin-bottom: 1.5rem; }
+  #status { color: #555; margin-bottom: 1.5rem; }
+  input[type="password"] { width: 100%; padding: 12px 14px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; margin-bottom: 12px; box-sizing: border-box; }
+  button { width: 100%; padding: 12px 14px; background: #620000; color: #fff; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; }
+  button:disabled { opacity: 0.6; cursor: default; }
+  form { display: none; }
 </style>
 </head>
 <body>
-  <h1>Aprimarus — Painel de publicação</h1>
+  <h1>Aprimarus — Definir senha de acesso</h1>
   <p id="status">Carregando convite...</p>
+  <form id="pwForm">
+    <input type="password" id="pw" placeholder="Nova senha (mínimo 8 caracteres)" required minlength="8" autocomplete="new-password">
+    <button type="submit" id="submitBtn">Confirmar convite</button>
+  </form>
+
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
+    function getInviteToken() {
+      var m = location.hash.match(/invite_token=([^&]+)/);
+      return m ? decodeURIComponent(m[1]) : null;
+    }
+
+    var token = getInviteToken();
+    var statusEl = document.getElementById('status');
+    var form = document.getElementById('pwForm');
+    var submitBtn = document.getElementById('submitBtn');
+
     netlifyIdentity.init();
-    netlifyIdentity.on('init', function (user) {
-      document.getElementById('status').textContent = user
-        ? 'Você já está logado como ' + user.email + '.'
-        : 'Se nada abrir automaticamente, recarregue a página.';
-    });
-    netlifyIdentity.on('login', function () {
-      window.location.href = '/admin/';
-    });
-    netlifyIdentity.on('error', function (err) {
-      document.getElementById('status').textContent = 'Erro: ' + (err && err.message ? err.message : err);
+
+    if (!token) {
+      statusEl.textContent = 'Nenhum convite encontrado nesse link. Volte no e-mail e clique em "Accept the invite" de novo.';
+    } else {
+      statusEl.textContent = 'Convite encontrado. Digite a senha que você quer usar e confirme:';
+      form.style.display = 'block';
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var pw = document.getElementById('pw').value;
+      submitBtn.disabled = true;
+      statusEl.textContent = 'Confirmando...';
+      netlifyIdentity.gotrue.acceptInvite(token, pw, true).then(function () {
+        statusEl.textContent = 'Conta ativada! Redirecionando para o painel...';
+        form.style.display = 'none';
+        setTimeout(function () { window.location.href = '/admin/'; }, 1500);
+      }).catch(function (err) {
+        submitBtn.disabled = false;
+        statusEl.textContent = 'Erro: ' + (err && err.message ? err.message : err);
+      });
     });
   </script>
 </body>
