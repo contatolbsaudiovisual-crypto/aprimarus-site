@@ -1,0 +1,71 @@
+---
+---
+<div id="lead-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl w-full max-w-md p-6 sm:p-8 relative shadow-elegant">
+    <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-primary transition-colors text-2xl">
+      <i class="ph ph-x"></i>
+    </button>
+
+    <h3 class="font-display text-2xl uppercase mb-2 text-foreground">Vamos crescer seu canal?</h3>
+    <p class="text-gray-600 text-sm mb-6">Preencha os dados abaixo para analisarmos seu projeto antes da nossa conversa.</p>
+
+    <form id="lead-form" class="space-y-4">
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-1">Seu Nome</label>
+        <input type="text" id="lead-nome" required class="w-full border border-gray-300 rounded-md px-4 py-2 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-black">
+      </div>
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-1">WhatsApp</label>
+        <input type="tel" id="lead-fone" required placeholder="(11) 99999-9999" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-black">
+      </div>
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-1">Link do YouTube (Opcional)</label>
+        <input type="text" id="lead-youtube" placeholder="https://youtube.com/..." class="w-full border border-gray-300 rounded-md px-4 py-2 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-black">
+      </div>
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-1">Seu Instagram</label>
+        <input type="text" id="lead-insta" required placeholder="@seuinstagram" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-black">
+      </div>
+
+      <button type="submit" class="w-full bg-primary text-white font-semibold py-3.5 rounded-md hover:bg-primary/90 transition-colors mt-4 shadow-md flex justify-center items-center gap-2">
+        <i class="ph-bold ph-whatsapp text-xl"></i> Falar com a Aprimarus
+      </button>
+    </form>
+  </div>
+</div>
+
+<script is:inline>
+  const modal = document.getElementById('lead-modal');
+  const leadForm = document.getElementById('lead-form');
+
+  function openModal() {
+    modal.classList.remove('hidden');
+  }
+  function closeModal() {
+    modal.classList.add('hidden');
+  }
+  window.openModal = openModal;
+  window.closeModal = closeModal;
+
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) closeModal();
+  });
+
+  leadForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const nome = document.getElementById('lead-nome').value;
+    const fone = document.getElementById('lead-fone').value;
+    const youtube = document.getElementById('lead-youtube').value || 'Não possui canal ainda';
+    const insta = document.getElementById('lead-insta').value;
+
+    const mensagem = `Olá Leonardo e Veronica! Vim pelo site e gostaria de falar sobre meu projeto.\n\n*Nome:* ${nome}\n*WhatsApp:* ${fone}\n*YouTube:* ${youtube}\n*Instagram:* ${insta}`;
+
+    const numeroAprimarus = '5519991166155';
+    const urlWhatsApp = `https://wa.me/${numeroAprimarus}?text=${encodeURIComponent(mensagem)}`;
+
+    window.open(urlWhatsApp, '_blank');
+    closeModal();
+    leadForm.reset();
+  });
+</script>

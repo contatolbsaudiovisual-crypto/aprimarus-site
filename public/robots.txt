@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+
+# Libera explicitamente os bots de IA (GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: BingBot
+Allow: /
+
+Sitemap: https://aprimarus.com.br/sitemap-index.xml

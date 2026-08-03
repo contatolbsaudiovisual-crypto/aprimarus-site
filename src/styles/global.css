@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #620000;
+  --color-primary-foreground: #ffffff;
+  --color-background: #ffffff;
+  --color-foreground: #0A0A0A;
+  --color-soft: #F9FAFB;
+  --color-border: #E5E7EB;
+  --color-card: #ffffff;
+  --color-growth: #2E7D32;
+  --color-growth-bg: #E8F5E9;
+
+  --font-sans: 'Montserrat', sans-serif;
+  --font-display: 'Anton', sans-serif;
+
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-elegant: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+body {
+  overflow-x: hidden;
+}
+.nav-link.active {
+  color: #620000;
+  font-weight: 700;
+}
+
+.post-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #620000;
+}
+.post-content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  color: #374151;
+}
+.post-content ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}

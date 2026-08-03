@@ -1,0 +1,44 @@
+---
+const path = Astro.url.pathname;
+const isActive = (href) => (href === '/' ? path === '/' : path.startsWith(href));
+---
+<nav class="fixed top-0 w-full bg-background/90 backdrop-blur-md border-b border-border z-50">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <a href="/" class="font-display text-2xl tracking-widest text-primary">APRIMARUS</a>
+
+    <div class="hidden md:flex items-center gap-8">
+      <a href="/" class:list={["nav-link font-semibold hover:text-primary transition-colors", { active: isActive('/') }]}>Início</a>
+      <a href="/portfolio" class:list={["nav-link font-semibold hover:text-primary transition-colors", { active: isActive('/portfolio') }]}>Portfólio</a>
+      <a href="/blog" class:list={["nav-link font-semibold hover:text-primary transition-colors", { active: isActive('/blog') }]}>Blog</a>
+      <a href="javascript:void(0)" onclick="openModal()" class="bg-primary text-primary-foreground px-5 py-2.5 rounded-md font-semibold hover:bg-primary/90 transition-colors shadow-sm">
+        Falar com a Aprimarus
+      </a>
+    </div>
+
+    <div class="flex items-center gap-3 md:hidden">
+      <a href="javascript:void(0)" onclick="openModal()" class="bg-primary text-white text-xs font-bold px-3 py-2 rounded inline-flex items-center gap-1 shadow-sm">
+        <i class="ph-bold ph-whatsapp text-sm"></i> Contato
+      </a>
+      <button class="text-2xl text-foreground" id="mobile-menu-btn" aria-label="Abrir menu de navegação">
+        <i class="ph ph-list"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden bg-background border-b border-border px-6 py-4 flex flex-col gap-4">
+    <a href="/" class="text-left font-semibold py-2">Início</a>
+    <a href="/portfolio" class="text-left font-semibold py-2">Portfólio</a>
+    <a href="/blog" class="text-left font-semibold py-2">Blog</a>
+    <a href="javascript:void(0)" onclick="openModal()" class="bg-primary text-primary-foreground px-5 py-3 rounded-md font-semibold text-center mt-2">
+      Falar com a Aprimarus
+    </a>
+  </div>
+</nav>
+
+<script is:inline>
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  mobileBtn?.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>

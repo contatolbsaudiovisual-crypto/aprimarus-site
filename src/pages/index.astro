@@ -1,0 +1,313 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout
+  title="Aprimarus - Agência de Gestão e SEO para YouTube"
+  description="Agência especializada em estruturação, edição, SEO e gestão estratégica de canais no YouTube para infoprodutores. Transforme seu canal em uma máquina de vendas."
+>
+  <main class="block pt-20">
+    <section class="pt-16 pb-16 md:pb-24 bg-gradient-to-b from-soft to-background">
+      <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-10 items-center">
+        <div class="w-full lg:w-1/2">
+          <p class="text-primary font-semibold text-sm md:text-base uppercase tracking-wider mb-4">
+            Para infoprodutores que querem crescer no YouTube de verdade
+          </p>
+          <h1 class="font-display text-4xl sm:text-5xl md:text-6xl uppercase mb-4 leading-none">
+            <span class="sr-only">Agência de SEO para YouTube: </span>
+            Seu canal no YouTube pode gerar leads e vendas <br>
+            <span class="text-foreground">todos os dias.</span>
+          </h1>
+          <h2 class="text-2xl md:text-3xl font-bold text-foreground mb-6">
+            Você só grava. A gente cuida do resto.
+          </h2>
+          <p class="text-lg text-gray-700 leading-relaxed mb-8">
+            Mas só se alguém souber fazer isso funcionar. A Aprimarus assume a estratégia, edição, SEO e distribuição.
+          </p>
+
+          <ul class="space-y-3 mb-10">
+            <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-1"></i><span class="text-gray-800">Canal parado? A gente estrutura e coloca para crescer.</span></li>
+            <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-1"></i><span class="text-gray-800">Já tentou sozinho e não funcionou? O problema era a estratégia, não você.</span></li>
+            <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-1"></i><span class="text-gray-800">Não tem tempo nem equipe? Esse é exatamente o nosso trabalho.</span></li>
+            <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-1"></i><span class="text-gray-800">Quer leads vindos do YouTube? É pra isso que a gente existe.</span></li>
+          </ul>
+
+          <a href="javascript:void(0)" onclick="openModal()" class="inline-flex items-center justify-center bg-primary text-white font-semibold px-8 py-4 rounded-md hover:bg-primary/90 transition-colors text-lg shadow-lg">
+            Quero entender como funciona
+          </a>
+        </div>
+
+        <div class="w-full lg:w-1/2 relative">
+          <img src="/assets/depois.webp" alt="Gráfico de crescimento de canal com a Agência Aprimarus - Aumento de visualizações e retenção" width="600" height="400" fetchpriority="high" decoding="async" class="w-full h-auto rounded-2xl shadow-elegant border border-gray-200 object-contain">
+          <div class="mt-4 flex flex-wrap justify-center lg:justify-start gap-3 w-full">
+            <span class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-growth-bg text-growth font-bold text-sm">
+              <i class="ph-bold ph-trend-up"></i> +184% Visualizações
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-growth-bg text-growth font-bold text-sm">
+              <i class="ph-bold ph-trend-up"></i> +125% Retenção
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-foreground text-background">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl text-center uppercase mb-6 leading-tight">
+          Enquanto você não está no YouTube,<br />
+          <span class="text-white">seu concorrente está sendo encontrado no seu lugar.</span>
+        </h2>
+        <p class="text-center text-gray-300 text-lg mb-12">
+          Cada semana sem conteúdo estratégico é uma semana de buscas que não te encontram. O YouTube não esquece quem aparece. E não perdoa quem posa.
+        </p>
+
+        <div class="overflow-hidden rounded-2xl border border-gray-800 grid grid-cols-2">
+          <div class="p-5 md:p-6 bg-gray-900 font-semibold text-gray-300 uppercase text-xs md:text-sm tracking-wider">Sem a Aprimarus</div>
+          <div class="p-5 md:p-6 bg-primary text-white font-semibold uppercase text-xs md:text-sm tracking-wider">Com a Aprimarus</div>
+
+          <div class="p-5 border-t border-gray-800 flex gap-3"><i class="ph ph-x text-gray-500 mt-1 flex-shrink-0"></i><span class="text-gray-200 text-sm">Posta sem SEO, ninguém acha</span></div>
+          <div class="p-5 border-t border-gray-800 bg-gray-900 flex gap-3"><i class="ph-bold ph-check text-primary mt-1 flex-shrink-0"></i><span class="text-white text-sm">Cada vídeo posicionado nas buscas</span></div>
+
+          <div class="p-5 border-t border-gray-800 flex gap-3"><i class="ph ph-x text-gray-500 mt-1 flex-shrink-0"></i><span class="text-gray-200 text-sm">Vídeo some em dias</span></div>
+          <div class="p-5 border-t border-gray-800 bg-gray-900 flex gap-3"><i class="ph-bold ph-check text-primary mt-1 flex-shrink-0"></i><span class="text-white text-sm">Vídeo aparece nas buscas por anos</span></div>
+
+          <div class="p-5 border-t border-gray-800 flex gap-3"><i class="ph ph-x text-gray-500 mt-1 flex-shrink-0"></i><span class="text-gray-200 text-sm">Sem dados, sem direção</span></div>
+          <div class="p-5 border-t border-gray-800 bg-gray-900 flex gap-3"><i class="ph-bold ph-check text-primary mt-1 flex-shrink-0"></i><span class="text-white text-sm">Análise mensal de performance real</span></div>
+
+          <div class="p-5 border-t border-gray-800 flex gap-3"><i class="ph ph-x text-gray-500 mt-1 flex-shrink-0"></i><span class="text-gray-200 text-sm">3 profissionais para coordenar</span></div>
+          <div class="p-5 border-t border-gray-800 bg-gray-900 flex gap-3"><i class="ph-bold ph-check text-primary mt-1 flex-shrink-0"></i><span class="text-white text-sm">Um único ponto de contato</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl uppercase text-center mb-4">Esse serviço foi feito para você se...</h2>
+        <div class="w-16 h-1 bg-primary mx-auto mb-12"></div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div class="p-6 rounded-xl border border-border shadow-card"><i class="ph ph-target text-3xl text-primary mb-4 block"></i><p class="text-gray-800">Você tem conhecimento valioso mas o canal não cresce na mesma velocidade.</p></div>
+          <div class="p-6 rounded-xl border border-border shadow-card"><i class="ph ph-clock text-3xl text-primary mb-4 block"></i><p class="text-gray-800">Você não tem tempo e/ou não tem equipe para cuidar de edição, thumbnail, SEO e postagem.</p></div>
+          <div class="p-6 rounded-xl border border-border shadow-card"><i class="ph ph-arrows-clockwise text-3xl text-primary mb-4 block"></i><p class="text-gray-800">Você já tentou YouTube sozinho ou com freelancer avulso e não funcionou.</p></div>
+          <div class="p-6 rounded-xl border border-border shadow-card"><i class="ph ph-chart-bar text-3xl text-primary mb-4 block"></i><p class="text-gray-800">Você quer crescimento com dados, não com achismo.</p></div>
+          <div class="p-6 rounded-xl border border-border shadow-card"><i class="ph ph-briefcase text-3xl text-primary mb-4 block"></i><p class="text-gray-800">Você quer o YouTube como canal de aquisição constante de leads e clientes.</p></div>
+          <div class="p-6 rounded-xl border border-border shadow-card"><i class="ph ph-brain text-3xl text-primary mb-4 block"></i><p class="text-gray-800">Você quer focar no seu conteúdo e deixar toda a operação com especialistas.</p></div>
+        </div>
+
+        <div class="text-center">
+          <a href="javascript:void(0)" onclick="openModal()" class="inline-flex items-center justify-center bg-primary text-white font-semibold px-8 py-4 rounded-md hover:bg-primary/90 transition-colors text-lg shadow-lg">
+            Quero ter um parceiro estratégico no YouTube
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-soft border-t border-border">
+      <div class="max-w-6xl mx-auto px-6">
+
+        <div class="mb-16">
+          <div class="text-center mb-10">
+            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl uppercase mb-4 text-foreground">Resultados que construímos na <span class="text-primary">prática</span></h2>
+            <p class="text-gray-700 text-lg">Canais reais com crescimento validado pelo próprio YouTube Studio.</p>
+          </div>
+
+          <div class="grid lg:grid-cols-3 gap-8">
+            <div class="flex flex-col items-center">
+              <img src="/assets/case-1.webp" alt="Aumento de 1907% nas visualizações e 1527% na receita com otimização SEO Aprimarus" width="400" height="300" loading="lazy" decoding="async" class="rounded-xl shadow-card border border-border w-full object-cover">
+              <div class="mt-4 flex flex-wrap justify-center gap-2 w-full">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-growth-bg text-growth font-bold text-sm">
+                  <i class="ph-bold ph-trend-up"></i> +1.907% Visualizações
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-growth-bg text-growth font-bold text-sm">
+                  <i class="ph-bold ph-currency-circle-dollar"></i> +1.527% Receita
+                </span>
+              </div>
+            </div>
+
+            <div class="flex flex-col items-center">
+              <img src="/assets/case-2.webp" alt="Estratégia de retenção no YouTube gerando aumento de 184% nas views - Aprimarus" width="400" height="300" loading="lazy" decoding="async" class="rounded-xl shadow-card border border-border w-full object-cover">
+              <div class="mt-4 flex flex-wrap justify-center gap-2 w-full">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-growth-bg text-growth font-bold text-sm">
+                  <i class="ph-bold ph-trend-up"></i> +184% Visualizações
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-growth-bg text-growth font-bold text-sm">
+                  <i class="ph-bold ph-trend-up"></i> +125% Retenção
+                </span>
+              </div>
+            </div>
+
+            <div class="flex flex-col items-center">
+              <img src="/assets/case-3.webp" alt="Crescimento acelerado de 4480% em inscritos através de vídeos otimizados - Aprimarus" width="400" height="300" loading="lazy" decoding="async" class="rounded-xl shadow-card border border-border w-full object-cover">
+              <div class="mt-4 flex flex-wrap justify-center gap-2 w-full">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-growth-bg text-growth font-bold text-sm">
+                  <i class="ph-bold ph-trend-up"></i> +390% Visualizações
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-growth-bg text-growth font-bold text-sm">
+                  <i class="ph-bold ph-trend-up"></i> +4.480% Inscritos
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl sm:text-3xl uppercase mb-8 text-center text-foreground">O que nossos clientes dizem</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            <img src="/assets/depoimento-1.webp" alt="Depoimento de cliente satisfeito com a agência de YouTube Aprimarus" width="400" height="400" loading="lazy" decoding="async" class="rounded-xl shadow-card border border-border w-full object-cover">
+            <img src="/assets/depoimento-2.webp" alt="Avaliação de criador de conteúdo sobre o serviço de edição e SEO da Aprimarus" width="400" height="400" loading="lazy" decoding="async" class="rounded-xl shadow-card border border-border w-full object-cover">
+            <img src="/assets/depoimento-3.webp" alt="Relato de infoprodutor sobre o crescimento do canal gerado pela Aprimarus" width="400" height="400" loading="lazy" decoding="async" class="rounded-xl shadow-card border border-border w-full object-cover">
+          </div>
+          <div class="text-center mt-12">
+            <a href="/portfolio" class="inline-flex items-center gap-2 font-semibold text-primary hover:text-primary/80 transition-colors border-b-2 border-primary pb-1">
+              Ver portfólio completo e mais depoimentos <i class="ph-bold ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-foreground text-background">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-14">
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl uppercase mb-4">
+            Você só grava.<br />
+            <span class="font-bold underline decoration-primary underline-offset-4">Toda a pré e pós-produção</span> é com a gente.
+          </h2>
+          <p class="text-gray-300 mt-6 text-lg">Um processo validado em mais de 25 canais para transformar gravações brutas em crescimento real.</p>
+        </div>
+
+        <div class="space-y-8">
+          <div class="flex gap-5 items-start">
+            <div class="w-14 h-14 shrink-0 rounded-lg bg-primary text-white font-display text-2xl flex items-center justify-center">1</div>
+            <div><h3 class="font-bold text-xl mb-1 text-white">Estruturação do Canal + Análise de Mercado</h3><p class="text-gray-300">Antes do primeiro vídeo, mapeamos seu nicho, concorrentes e pesquisas.</p></div>
+          </div>
+          <div class="flex gap-5 items-start">
+            <div class="w-14 h-14 shrink-0 rounded-lg bg-primary text-white font-display text-2xl flex items-center justify-center">2</div>
+            <div><h3 class="font-bold text-xl mb-1 text-white">Pesquisa de Temas + Gancho e Promessa</h3><p class="text-gray-300">Você recebe os temas do mês com ganchos prontos. Você só fala o seu conhecimento.</p></div>
+          </div>
+          <div class="flex gap-5 items-start">
+            <div class="w-14 h-14 shrink-0 rounded-lg bg-primary text-white font-display text-2xl flex items-center justify-center">3</div>
+            <div><h3 class="font-bold text-xl mb-1 text-white">Você Grava. Só Isso.</h3><p class="text-gray-300">Sem pensar em edição ou SEO. Você grava do seu jeito e manda o arquivo.</p></div>
+          </div>
+          <div class="flex gap-5 items-start">
+            <div class="w-14 h-14 shrink-0 rounded-lg bg-primary text-white font-display text-2xl flex items-center justify-center">4</div>
+            <div><h3 class="font-bold text-xl mb-1 text-white">Edição Profissional + Capa Otimizada</h3><p class="text-gray-300">Edição focada em retenção. Thumbnail criada para gerar o máximo de cliques.</p></div>
+          </div>
+          <div class="flex gap-5 items-start">
+            <div class="w-14 h-14 shrink-0 rounded-lg bg-primary text-white font-display text-2xl flex items-center justify-center">5</div>
+            <div><h3 class="font-bold text-xl mb-1 text-white">Postagem com SEO Completo</h3><p class="text-gray-300">Título, descrição, tags e cards preenchidos pro algoritmo encontrar seu vídeo.</p></div>
+          </div>
+          <div class="flex gap-5 items-start">
+            <div class="w-14 h-14 shrink-0 rounded-lg bg-primary text-white font-display text-2xl flex items-center justify-center">6</div>
+            <div><h3 class="font-bold text-xl mb-1 text-white">Relatório Mensal com Análise Real</h3><p class="text-gray-300">Todo mês ajustamos a estratégia com base em dados, não com achismo.</p></div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="javascript:void(0)" onclick="openModal()" class="inline-flex items-center justify-center bg-primary text-white font-semibold px-8 py-4 rounded-md hover:bg-primary/90 transition-colors text-lg">
+            Quero esse processo no meu canal
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-soft border-t border-border">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl uppercase mb-4 text-foreground">
+            Modelos de <span class="text-primary">Parceria</span>
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto text-base">
+            Cada plano foi pensado para um momento diferente de crescimento. O plano ideal depende da sua frequência.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+          <div class="bg-card rounded-2xl p-8 border border-border shadow-card flex flex-col mt-4 md:mt-4">
+            <h3 class="font-display text-2xl uppercase mb-1">Essencial</h3>
+            <p class="text-gray-600 text-sm mb-6 h-10">Para quem quer começar com consistência</p>
+            <ul class="space-y-4 mb-8 flex-1 text-sm text-gray-700">
+              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-0.5"></i> 4 vídeos por mês (1x por semana)</li>
+              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-0.5"></i> SEO completo em cada publicação</li>
+              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-0.5"></i> Thumbnails otimizadas para clique</li>
+              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-0.5"></i> Estruturação do canal</li>
+              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-0.5"></i> Relatório mensal e suporte</li>
+            </ul>
+            <a href="javascript:void(0)" onclick="openModal()" class="w-full text-center border-2 border-gray-200 text-foreground font-semibold py-3.5 rounded-md hover:border-foreground transition-colors">
+              Falar sobre o Essencial &rarr;
+            </a>
+          </div>
+
+          <div class="bg-primary text-white rounded-2xl p-8 shadow-elegant flex flex-col relative transform md:-translate-y-4 border-2 border-primary">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-foreground text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1 uppercase tracking-wider">
+              <i class="ph-fill ph-star"></i> Mais escolhido
+            </div>
+            <h3 class="font-display text-2xl uppercase mb-1">Pro</h3>
+            <p class="text-gray-100 text-sm mb-6 h-10">Para quem quer crescimento acelerado</p>
+            <ul class="space-y-4 mb-8 flex-1 text-sm text-gray-100">
+              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-white mt-0.5"></i> 8 vídeos por mês (2x por semana)</li>
+              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-white mt-0.5"></i> SEO completo em cada publicação</li>
+              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-white mt-0.5"></i> Thumbnails otimizadas para clique</li>
+              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-white mt-0.5"></i> Estruturação do canal</li>
+              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-white mt-0.5"></i> Reels e anúncios ilimitados</li>
+            </ul>
+            <a href="javascript:void(0)" onclick="openModal()" class="w-full text-center bg-white text-primary font-semibold py-3.5 rounded-md hover:bg-gray-100 transition-colors">
+              Quero o plano Pro &rarr;
+            </a>
+          </div>
+
+          <div class="bg-card rounded-2xl p-8 border border-border shadow-card flex flex-col mt-4 md:mt-4">
+            <h3 class="font-display text-2xl uppercase mb-1">Scale</h3>
+            <p class="text-gray-600 text-sm mb-6 h-10">Para quem quer dominar o nicho</p>
+            <ul class="space-y-4 mb-8 flex-1 text-sm text-gray-700">
+              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-0.5"></i> 12 vídeos por mês (3x por semana)</li>
+              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-0.5"></i> SEO completo em cada publicação</li>
+              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-0.5"></i> Thumbnails otimizadas para clique</li>
+              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-0.5"></i> Reels e anúncios ilimitados</li>
+              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-0.5"></i> Carrosséis para Instagram</li>
+            </ul>
+            <a href="javascript:void(0)" onclick="openModal()" class="w-full text-center border-2 border-gray-200 text-foreground font-semibold py-3.5 rounded-md hover:border-foreground transition-colors">
+              Falar sobre o Scale &rarr;
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-16 text-center">
+          <a href="javascript:void(0)" onclick="openModal()" class="inline-flex items-center justify-center bg-primary text-white font-semibold px-8 py-4 rounded-md hover:bg-primary/90 transition-colors text-base shadow-md">
+            Descobrir o melhor plano para mim &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-background border-t border-border">
+      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl uppercase mb-6">A inteligência estratégica por trás de canais que <span class="text-primary">crescem.</span></h2>
+          <p class="text-gray-800 leading-relaxed mb-4">A Aprimarus é focada em infoprodutores que querem transformar conhecimento em audiência real e vendas previsíveis.</p>
+          <p class="text-gray-800 leading-relaxed mb-8">Somos <strong>Leonardo e Veronica Di Bartolomeo</strong>. Especialistas em SEO, estratégia de conteúdo e criação visual.</p>
+
+          <div class="grid grid-cols-3 gap-4 mb-8">
+            <div class="border-l-2 border-primary pl-4"><div class="font-display text-2xl uppercase">5+</div><div class="text-xs text-gray-600">Anos mercado</div></div>
+            <div class="border-l-2 border-primary pl-4"><div class="font-display text-2xl uppercase">25+</div><div class="text-xs text-gray-600">Canais</div></div>
+            <div class="border-l-2 border-primary pl-4"><div class="font-display text-2xl uppercase">LTDA</div><div class="text-xs text-gray-600">Registrada</div></div>
+          </div>
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-elegant h-[400px]">
+          <img src="/assets/casal.webp" alt="Leonardo e Veronica Di Bartolomeo, fundadores da Agência Aprimarus, especialistas em edição de vídeo e SEO para YouTube" width="500" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover bg-gray-200">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="py-20 md:py-28 bg-foreground text-background">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="font-display text-3xl sm:text-4xl md:text-5xl uppercase mb-8 text-white leading-tight">
+        Quer resultados como esses para o seu canal?
+      </h2>
+      <a href="javascript:void(0)" onclick="openModal()" class="inline-flex items-center justify-center bg-primary text-white font-semibold px-8 py-4 rounded-md hover:bg-primary/90 transition-colors text-lg">
+        Falar com a Aprimarus agora
+      </a>
+      <p class="mt-6 text-sm text-gray-400">Resposta em até 24 horas · Sem compromisso</p>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,102 @@
+---
+import Layout from './Layout.astro';
+
+interface FaqItem {
+  pergunta: string;
+  resposta: string;
+}
+interface Props {
+  title: string;
+  description: string;
+  resumo: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  author: string;
+  heroImage?: string;
+  tags: string[];
+  faq?: FaqItem[];
+}
+
+const { title, description, resumo, pubDate, updatedDate, author, heroImage, tags, faq } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: pubDate.toISOString(),
+  dateModified: (updatedDate ?? pubDate).toISOString(),
+  author: { '@type': 'Person', name: author },
+  publisher: { '@type': 'Organization', name: 'Aprimarus', logo: { '@type': 'ImageObject', url: 'https://aprimarus.com.br/assets/casal.webp' } },
+  mainEntityOfPage: canonicalURL.toString(),
+  image: heroImage ? new URL(heroImage, Astro.site).toString() : undefined,
+};
+
+const faqSchema = faq?.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faq.map((item) => ({
+        '@type': 'Question',
+        name: item.pergunta,
+        acceptedAnswer: { '@type': 'Answer', text: item.resposta },
+      })),
+    }
+  : null;
+
+const extraSchema = [articleSchema, ...(faqSchema ? [faqSchema] : [])];
+---
+<Layout title={`${title} | Blog Aprimarus`} description={description} ogImage={heroImage ? new URL(heroImage, Astro.site).toString() : undefined} extraSchema={extraSchema}>
+  <main class="pt-28 pb-20">
+    <article class="max-w-3xl mx-auto px-6">
+      <a href="/blog" class="inline-flex items-center gap-2 text-primary font-semibold mb-8 hover:underline">
+        <i class="ph-bold ph-arrow-left"></i> Voltar para o Blog
+      </a>
+
+      <p class="text-sm text-gray-500 font-semibold mb-3 tracking-widest uppercase">
+        {pubDate.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })} · {author}
+      </p>
+      <h1 class="font-display text-3xl sm:text-4xl md:text-5xl uppercase leading-tight text-foreground mb-8">{title}</h1>
+
+      {heroImage && (
+        <img src={heroImage} alt={title} width="800" height="450" class="w-full h-auto rounded-2xl shadow-elegant mb-10 object-cover aspect-video" />
+      )}
+
+      <p class="bg-soft border-l-4 border-primary p-5 rounded-md text-gray-800 mb-10">{resumo}</p>
+
+      <div class="post-content text-lg">
+        <slot />
+      </div>
+
+      {tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mt-10">
+          {tags.map((tag) => (
+            <span class="text-xs font-semibold uppercase tracking-wider bg-soft text-gray-600 px-3 py-1 rounded-full border border-border">{tag}</span>
+          ))}
+        </div>
+      )}
+
+      {faq && faq.length > 0 && (
+        <section class="mt-16" aria-label="Perguntas frequentes">
+          <h2 class="font-display text-2xl uppercase mb-6 text-foreground">Perguntas frequentes</h2>
+          {faq.map((item) => (
+            <div class="mb-6">
+              <h3 class="font-bold text-lg mb-1 text-foreground">{item.pergunta}</h3>
+              <p class="text-gray-700">{item.resposta}</p>
+            </div>
+          ))}
+        </section>
+      )}
+
+      <div class="mt-16 p-8 bg-soft border border-border rounded-xl text-center shadow-sm">
+        <h3 class="font-display text-2xl uppercase mb-2">Gostou da estratégia?</h3>
+        <p class="text-gray-600 mb-6">A Aprimarus pode aplicar isso no seu canal enquanto você só foca em gravar.</p>
+        <a href="javascript:void(0)" onclick="openModal()" class="inline-flex items-center justify-center bg-primary text-white font-semibold px-6 py-3 rounded-md hover:bg-primary/90 transition-colors shadow-md">
+          Falar com a equipe Aprimarus
+        </a>
+      </div>
+    </article>
+  </main>
+</Layout>
