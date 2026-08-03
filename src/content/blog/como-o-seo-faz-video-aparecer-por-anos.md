@@ -1,16 +1,30 @@
 ---
-title: "Como o SEO de vídeo faz um vídeo aparecer nas buscas do YouTube por anos"
-description: "Entenda por que vídeos otimizados continuam gerando visualizações meses e até anos depois da publicação, e o que muda no algoritmo do YouTube."
-resumo: "SEO de vídeo funciona porque o YouTube usa título, descrição, tags e retenção pra entender do que o vídeo trata e pra quem recomendar. Um vídeo bem otimizado continua sendo indicado em buscas e sugestões muito depois da publicação, ao contrário de um vídeo postado sem estratégia, que some do radar em poucos dias."
+title: Como o SEO faz um vídeo aparecer nas buscas do YouTube por anos?
+description: Entenda por que vídeos otimizados continuam gerando visualizações
+  meses e até anos depois da publicação, e o que muda no algoritmo do YouTube.
+resumo: SEO de vídeo funciona porque o YouTube usa título, descrição, tags e
+  retenção pra entender do que o vídeo trata e pra quem recomendar. Um vídeo bem
+  otimizado continua sendo indicado em buscas e sugestões muito depois da
+  publicação, ao contrário de um vídeo postado sem estratégia, que some do radar
+  em poucos dias.
 pubDate: 2026-08-03
-author: "Leonardo Di Bartolomeo"
-heroImage: "/assets/depois.webp"
-tags: ["seo", "youtube", "estrategia"]
+author: Leonardo Di Bartolomeo
+heroImage: /assets/depois.webp
+tags:
+  - seo
+  - youtube
+  - estrategia
 faq:
-  - pergunta: "Quanto tempo leva pra um vídeo otimizado começar a rankear?"
-    resposta: "Os primeiros sinais de posicionamento costumam aparecer nas primeiras semanas, mas o efeito composto do SEO de vídeo cresce ao longo de meses — é comum vídeos publicados há mais de um ano continuarem trazendo visualizações novas todos os dias."
-  - pergunta: "SEO de vídeo substitui a qualidade do conteúdo?"
-    resposta: "Não. SEO faz o YouTube entender e recomendar o vídeo — mas quem mantém a pessoa assistindo (retenção) é o conteúdo. Os dois trabalham juntos: sem SEO o vídeo não é descoberto, sem retenção o algoritmo para de recomendar."
+  - pergunta: Quanto tempo leva pra um vídeo otimizado começar a rankear?
+    resposta: Os primeiros sinais de posicionamento costumam aparecer nas primeiras
+      semanas, mas o efeito composto do SEO de vídeo cresce ao longo de meses —
+      é comum vídeos publicados há mais de um ano continuarem trazendo
+      visualizações novas todos os dias.
+  - pergunta: SEO de vídeo substitui a qualidade do conteúdo?
+    resposta: "Não. SEO faz o YouTube entender e recomendar o vídeo — mas quem
+      mantém a pessoa assistindo (retenção) é o conteúdo. Os dois trabalham
+      juntos: sem SEO o vídeo não é descoberto, sem retenção o algoritmo para de
+      recomendar."
 ---
 
 ## Por que alguns vídeos somem e outros continuam sendo vistos por anos
