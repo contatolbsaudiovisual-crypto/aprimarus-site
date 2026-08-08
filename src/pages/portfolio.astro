@@ -32,6 +32,11 @@ const depoimentos = [1, 2, 3, 4, 5, 6].map((n) => ({
   img: `/assets/depoimento-${n}.webp`,
   alt: `Depoimento de cliente ${n} sobre os resultados da Agência Aprimarus no YouTube`,
 }));
+
+const trabalhos = [1, 2, 3, 4, 5, 6].map((n) => ({
+  img: `/assets/thumb-${n}.webp`,
+  alt: `Thumbnail de vídeo produzido pela Aprimarus para canal de cliente, exemplo ${n}`,
+}));
 ---
 <Layout
   title="Portfólio - Cases e Depoimentos | Aprimarus"
@@ -69,6 +74,21 @@ const depoimentos = [1, 2, 3, 4, 5, 6].map((n) => ({
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           {depoimentos.map((d) => (
             <img src={d.img} alt={d.alt} width="400" height="400" loading="lazy" decoding="async" class="rounded-xl shadow-card border border-border w-full object-cover" />
+          ))}
+        </div>
+      </div>
+
+      <div class="mb-20">
+        <h2 class="font-display text-3xl sm:text-4xl uppercase mb-4 text-center text-foreground">Trabalhos que produzimos</h2>
+        <p class="text-gray-700 text-lg max-w-2xl mx-auto text-center mb-10">Uma amostra das thumbnails e vídeos que edição e SEO da Aprimarus colocaram no ar para clientes de nichos diferentes.</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {trabalhos.map((t) => (
+            <div class="relative rounded-xl overflow-hidden shadow-card border border-border group">
+              <img src={t.img} alt={t.alt} width="480" height="270" loading="lazy" decoding="async" class="w-full aspect-video object-cover" />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                <i class="ph-fill ph-play-circle text-5xl text-white/90 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+              </div>
+            </div>
           ))}
         </div>
       </div>
