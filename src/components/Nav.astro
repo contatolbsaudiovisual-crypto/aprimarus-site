@@ -10,15 +10,15 @@ const isActive = (href) => (href === '/' ? path === '/' : path.startsWith(href))
       <a href="/" class:list={["nav-link font-semibold hover:text-primary transition-colors", { active: isActive('/') }]}>Início</a>
       <a href="/portfolio" class:list={["nav-link font-semibold hover:text-primary transition-colors", { active: isActive('/portfolio') }]}>Portfólio</a>
       <a href="/blog" class:list={["nav-link font-semibold hover:text-primary transition-colors", { active: isActive('/blog') }]}>Blog</a>
-      <a href="javascript:void(0)" onclick="openModal()" class="bg-primary text-primary-foreground px-5 py-2.5 rounded-md font-semibold hover:bg-primary/90 transition-colors shadow-sm">
+      <button type="button" onclick="openModal()" class="bg-primary text-primary-foreground px-5 py-2.5 rounded-md font-semibold hover:bg-primary/90 transition-colors shadow-sm">
         Falar com a Aprimarus
-      </a>
+      </button>
     </div>
 
     <div class="flex items-center gap-3 md:hidden">
-      <a href="javascript:void(0)" onclick="openModal()" class="bg-primary text-white text-xs font-bold px-3 py-2 rounded inline-flex items-center gap-1 shadow-sm">
+      <button type="button" onclick="openModal()" class="bg-primary text-white text-xs font-bold px-3 py-2 rounded inline-flex items-center gap-1 shadow-sm">
         <i class="ph-bold ph-whatsapp text-sm"></i> Contato
-      </a>
+      </button>
       <button class="text-2xl text-foreground" id="mobile-menu-btn" aria-label="Abrir menu de navegação">
         <i class="ph ph-list"></i>
       </button>
@@ -29,9 +29,9 @@ const isActive = (href) => (href === '/' ? path === '/' : path.startsWith(href))
     <a href="/" class="text-left font-semibold py-2">Início</a>
     <a href="/portfolio" class="text-left font-semibold py-2">Portfólio</a>
     <a href="/blog" class="text-left font-semibold py-2">Blog</a>
-    <a href="javascript:void(0)" onclick="openModal()" class="bg-primary text-primary-foreground px-5 py-3 rounded-md font-semibold text-center mt-2">
+    <button type="button" onclick="openModal()" class="bg-primary text-primary-foreground px-5 py-3 rounded-md font-semibold text-center mt-2">
       Falar com a Aprimarus
-    </a>
+    </button>
   </div>
 </nav>
 
