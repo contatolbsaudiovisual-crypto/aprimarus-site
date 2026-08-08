@@ -33,14 +33,55 @@ const depoimentos = [1, 2, 3, 4, 5, 6].map((n) => ({
   alt: `Depoimento de cliente ${n} sobre os resultados da Agência Aprimarus no YouTube`,
 }));
 
-const trabalhos = [1, 2, 3, 4, 5, 6].map((n) => ({
-  img: `/assets/thumb-${n}.webp`,
-  alt: `Thumbnail de vídeo produzido pela Aprimarus para canal de cliente, exemplo ${n}`,
+const thumbs = [
+  { n: 1, alt: 'Exemplo de thumbnail otimizada para YouTube focada em alta taxa de clique (CTR)' },
+  { n: 2, alt: 'Design de capa de vídeo estratégica criada pela Aprimarus para infoprodutores' },
+  { n: 3, alt: 'Criação visual de thumbnail de alto impacto para viralização de vídeo' },
+  { n: 4, alt: 'Thumbnail de YouTube projetada para conversão e cliques' },
+  { n: 5, alt: 'Capa de YouTube profissional com gatilhos de curiosidade criados pela agência' },
+  { n: 6, alt: 'Thumbnail estratégica para vídeos longos e aumento de audiência orgânica' },
+].map((t) => ({ img: `/assets/thumb-${t.n}.webp`, alt: t.alt }));
+
+const videosLongos = [
+  { id: 'q59LAiymIzE', title: 'Edição de Vídeo Profissional para Retenção - Aprimarus' },
+  { id: 'Zr8NGnJLD8w', title: 'Serviço de Edição Estratégica para YouTube' },
+  { id: 'PocAoRvBO7E', title: 'Case de Edição para Infoprodutores' },
+  { id: 'NHsTSkejUu4', title: 'Portfólio de Edição de YouTube - Retenção Alta' },
+  { id: '5HOKciiqi-I', title: 'Aprimarus Agência - Exemplo de Vídeo Editado' },
+  { id: 'y8R2VtmXoqs', title: 'Edição de Conteúdo Educacional no YouTube' },
+  { id: 'vaTiImEVAC0', title: 'Vídeo Estratégico para Canal de YouTube' },
+  { id: 'dApc8Km07EU', title: 'Corte e Edição de Vídeo com SEO' },
+];
+
+const shorts = [
+  { id: 'AtJLbWa_nfQ', title: 'Edição Dinâmica para YouTube Shorts' },
+  { id: 'kTNSw6_13y8', title: 'YouTube Shorts otimizado para retenção - Aprimarus' },
+  { id: 'tQ7-Wds7jdk', title: 'Exemplo de Short Viral Editado Profissionalmente' },
+  { id: 'PzNN4ZcCPXI', title: 'Edição Vertical Rápida para Infoprodutores' },
+  { id: '578XSD_Etvk', title: 'Corte Estratégico de Short para YouTube' },
+  { id: 'QKKB0VFh-EI', title: 'Gestão de Shorts e Conteúdo Vertical' },
+  { id: 'QaBuGJSq4Bc', title: 'Edição de Shorts de Alto Desempenho' },
+];
+
+const videoSchema = [...videosLongos, ...shorts].map((v) => ({
+  '@type': 'VideoObject',
+  name: v.title,
+  description: v.title,
+  thumbnailUrl: `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`,
+  uploadDate: '2026-01-01',
+  embedUrl: `https://www.youtube.com/embed/${v.id}`,
 }));
 ---
 <Layout
-  title="Portfólio - Cases e Depoimentos | Aprimarus"
-  description="Veja os resultados reais que a Aprimarus construiu em mais de 25 canais de infoprodutores: aumento de visualizações, receita e inscritos validados pelo YouTube Studio."
+  title="Portfólio - Cases, Vídeos e Depoimentos | Aprimarus"
+  description="Veja os resultados reais, vídeos editados, thumbnails e depoimentos que a Aprimarus construiu em mais de 25 canais de infoprodutores no YouTube."
+  extraSchema={[
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      itemListElement: videoSchema.map((v, i) => ({ '@type': 'ListItem', position: i + 1, item: v })),
+    },
+  ]}
 >
   <main class="pt-28 pb-20">
     <section class="max-w-6xl mx-auto px-6">
@@ -50,7 +91,7 @@ const trabalhos = [1, 2, 3, 4, 5, 6].map((n) => ({
           Resultados reais em mais de <span class="text-primary">25 canais</span>
         </h1>
         <p class="text-gray-700 text-lg max-w-3xl mx-auto">
-          Cada case abaixo é validado pelo próprio YouTube Studio dos nossos clientes — sem achismo, sem número inflado. É o que acontece quando estratégia, edição e SEO trabalham juntos.
+          Cada case abaixo é validado pelo próprio YouTube Studio dos nossos clientes, sem achismo e sem número inflado. É o que acontece quando estratégia, edição e SEO trabalham juntos.
         </p>
       </div>
 
@@ -79,15 +120,48 @@ const trabalhos = [1, 2, 3, 4, 5, 6].map((n) => ({
       </div>
 
       <div class="mb-20">
-        <h2 class="font-display text-3xl sm:text-4xl uppercase mb-4 text-center text-foreground">Trabalhos que produzimos</h2>
-        <p class="text-gray-700 text-lg max-w-2xl mx-auto text-center mb-10">Uma amostra das thumbnails e vídeos que edição e SEO da Aprimarus colocaram no ar para clientes de nichos diferentes.</p>
+        <h2 class="font-display text-3xl sm:text-4xl uppercase mb-4 text-center text-foreground">Thumbnails que geram clique</h2>
+        <p class="text-gray-700 text-lg max-w-2xl mx-auto text-center mb-10">Uma amostra das thumbnails que a Aprimarus produziu para clientes de nichos diferentes.</p>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {trabalhos.map((t) => (
-            <div class="relative rounded-xl overflow-hidden shadow-card border border-border group">
-              <img src={t.img} alt={t.alt} width="480" height="270" loading="lazy" decoding="async" class="w-full aspect-video object-cover" />
-              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                <i class="ph-fill ph-play-circle text-5xl text-white/90 opacity-0 group-hover:opacity-100 transition-opacity"></i>
-              </div>
+          {thumbs.map((t) => (
+            <img src={t.img} alt={t.alt} width="480" height="270" loading="lazy" decoding="async" class="rounded-xl shadow-card border border-border w-full aspect-video object-cover" />
+          ))}
+        </div>
+      </div>
+
+      <div class="mb-20">
+        <h2 class="font-display text-3xl sm:text-4xl uppercase mb-4 text-center text-foreground">Edições que retêm audiência</h2>
+        <p class="text-gray-700 text-lg max-w-2xl mx-auto text-center mb-10">Vídeos longos editados pela Aprimarus, otimizados para manter o espectador assistindo.</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {videosLongos.map((v) => (
+            <div class="rounded-xl overflow-hidden shadow-card border border-border aspect-video">
+              <iframe
+                src={`https://www.youtube.com/embed/${v.id}`}
+                title={v.title}
+                class="w-full h-full"
+                frameborder="0"
+                loading="lazy"
+                allowfullscreen
+              ></iframe>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="mb-20">
+        <h2 class="font-display text-3xl sm:text-4xl uppercase mb-4 text-center text-foreground">YouTube Shorts</h2>
+        <p class="text-gray-700 text-lg max-w-2xl mx-auto text-center mb-10">Cortes verticais de alta retenção produzidos para o feed de Shorts.</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {shorts.map((v) => (
+            <div class="rounded-xl overflow-hidden shadow-card border border-border aspect-[9/16]">
+              <iframe
+                src={`https://www.youtube.com/embed/${v.id}`}
+                title={v.title}
+                class="w-full h-full"
+                frameborder="0"
+                loading="lazy"
+                allowfullscreen
+              ></iframe>
             </div>
           ))}
         </div>
@@ -103,3 +177,4 @@ const trabalhos = [1, 2, 3, 4, 5, 6].map((n) => ({
     </section>
   </main>
 </Layout>
+
