@@ -32,16 +32,14 @@ A partir de fevereiro de 2027, essa exigência de horas de exibição dobra: pas
 
 Na prática, o YouTube está filtrando quem entra na monetização por anúncio, favorecendo canais que já têm audiência consolidada e histórico real de exibição, não picos isolados de visualização.
 
-## \
-Por que essa mudança gerou tanto barulho
+## **Por que essa mudança gerou tanto barulho**
 
 A reação nas redes foi imediata: muita gente que vive (ou tenta viver) de AdSense do YouTube encarou a notícia como uma ameaça direta à sua fonte de renda. E faz sentido, porque se o seu modelo de negócio depende do cheque mensal do AdSense, dobrar a régua de entrada é, sim, um problema real.
 
 Mas aqui entra o ponto que eu quero te mostrar: se a sua meta com o YouTube é bater a meta de horas pra \
 receber uns trocados de anúncio, você já está brincando no jogo errado, com ou sem essa mudança.
 
-## \
-O erro de tratar o YouTube como fonte de renda por anúncio
+## **O erro de tratar o YouTube como fonte de renda por anúncio**
 
 AdSense é migalha perto do que um canal bem posicionado pode gerar. Um canal de YouTube com boa estratégia de SEO, edição pensada pra retenção e conteúdo com autoridade não é sobre quantos reais o YouTube te paga por visualização, é sobre quantas pessoas esse vídeo converte em cliente.
 
@@ -49,8 +47,7 @@ AdSense é migalha perto do que um canal bem posicionado pode gerar. Um canal de
 
 Se você é médico, advogado, consultor ou infoprodutor e já tem autoridade ou faturamento no seu nicho, mas ainda não trata o seu canal como parte da sua estratégia comercial, essa notícia é, na verdade, um ótimo motivo pra rever isso agora, antes que dobrar a régua vire mais um motivo pra adiar.
 
-## \
-Onde está o dinheiro de verdade no YouTube
+## **Onde está o dinheiro de verdade no YouTube**
 
 O YouTube é o único ativo digital em que o conteúdo continua trabalhando por você meses (às vezes anos) depois de publicado. Diferente do Instagram ou TikTok, onde um post "morre" em 48 horas, um vídeo bem otimizado em SEO continua aparecendo em buscas e recomendando novos espectadores todos os dias.
 
@@ -58,8 +55,7 @@ Isso significa que cada vídeo publicado sem estratégia é, literalmente, uma s
 
 A pergunta que todo profissional liberal ou infoprodutor deveria estar fazendo não é "quanto o YouTube me paga de anúncio", e sim: **quantos dos meus espectadores viram clientes?**
 
-## \
-Como transformar audiência em cliente no YouTube
+## **Como transformar audiência em cliente no YouTube**
 
 Isso exige três coisas trabalhando juntas, e é raro alguém fazer as três bem ao mesmo tempo:
 
@@ -69,8 +65,7 @@ Isso exige três coisas trabalhando juntas, e é raro alguém fazer as três bem
 
 É exatamente esse o trabalho que a Aprimarus faz: gestão completa de canal de YouTube pra infoprodutores e profissionais liberais que já têm autoridade ou faturamento, mas não têm tempo (ou não são especialistas) pra tocar estratégia, SEO e edição sozinhos. Você grava, a gente cuida do resto, da análise de concorrência ao relatório mensal de resultado.
 
-## \
-O que fazer com essa notícia
+## **O que fazer com essa notícia**
 
 Se você ainda não tem canal, essa mudança não deveria te assustar. Deveria te lembrar que quem começa com estratégia de autoridade desde o primeiro vídeo nunca depende de bater meta de hora de exibição pra ganhar dinheiro.
 
