@@ -22,11 +22,7 @@ tags:
   - YouTube para infoprodutores
   - gestão de canal no YouTube.
 ---
-# **YouTube vai dobrar a exigência de monetização em 2027: por que isso não deveria ser sua prioridade**
-
 No dia 10 de agosto de 2026, o YouTube anunciou uma mudança que pegou muita gente de surpresa: a partir de fevereiro de 2027, vai ficar bem mais difícil começar a ganhar dinheiro com anúncios na plataforma. Se você tem um canal de YouTube, ou pensa em criar um para o seu negócio, sua clínica ou seu escritório, precisa entender o que muda. E, mais importante, precisa entender por que isso talvez nem seja um problema pra você.
-
-
 
 ## **O que muda na monetização do YouTube**
 
@@ -41,7 +37,8 @@ Por que essa mudança gerou tanto barulho
 
 A reação nas redes foi imediata: muita gente que vive (ou tenta viver) de AdSense do YouTube encarou a notícia como uma ameaça direta à sua fonte de renda. E faz sentido, porque se o seu modelo de negócio depende do cheque mensal do AdSense, dobrar a régua de entrada é, sim, um problema real.
 
-Mas aqui entra o ponto que eu quero te mostrar: se a sua meta com o YouTube é bater a meta de horas pra receber uns trocados de anúncio, você já está brincando no jogo errado, com ou sem essa mudança.
+Mas aqui entra o ponto que eu quero te mostrar: se a sua meta com o YouTube é bater a meta de horas pra \
+receber uns trocados de anúncio, você já está brincando no jogo errado, com ou sem essa mudança.
 
 ## \
 O erro de tratar o YouTube como fonte de renda por anúncio
@@ -66,10 +63,9 @@ Como transformar audiência em cliente no YouTube
 
 Isso exige três coisas trabalhando juntas, e é raro alguém fazer as três bem ao mesmo tempo:
 
-**Estratégia de conteúdo com propósito comercial:** Definir temas com gancho e promessa, pensados para atrair exatamente quem tem potencial de virar cliente, não só views.
-
-1. **SEO completo:** Título, descrição, tags, capítulos e tela final trabalhando juntos pra fazer o vídeo ser encontrado por quem já está buscando solução pro problema que você resolve.
-2. **Edição focada em retenção:** De nada adianta atrair a pessoa certa se ela sai no primeiro minuto.
+1. **Estratégia de conteúdo com propósito comercial:** Definir temas com gancho e promessa, pensados para atrair exatamente quem tem potencial de virar cliente, não só views.
+2. **SEO completo:** Título, descrição, tags, capítulos e tela final trabalhando juntos pra fazer o vídeo ser encontrado por quem já está buscando solução pro problema que você resolve.
+3. **Edição focada em retenção:** De nada adianta atrair a pessoa certa se ela sai no primeiro minuto.
 
 É exatamente esse o trabalho que a Aprimarus faz: gestão completa de canal de YouTube pra infoprodutores e profissionais liberais que já têm autoridade ou faturamento, mas não têm tempo (ou não são especialistas) pra tocar estratégia, SEO e edição sozinhos. Você grava, a gente cuida do resto, da análise de concorrência ao relatório mensal de resultado.
 
