@@ -8,7 +8,6 @@ resumo: A partir de fevereiro de 2027, o YouTube passa a exigir 8.000 horas de
   dias) para começar a monetizar por anúncio, o dobro da exigência atual. Quem
   já faz parte do Programa de Parceiros não é afetado pela mudança
 pubDate: 2026-08-13T17:04:00.000-03:00
-updatedDate: ""
 author: Leonardo Di Bartolomeo
 tags:
   - monetização do YouTube
