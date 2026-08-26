@@ -1,0 +1,45 @@
+---
+// Recebe o retorno do OAuth do TikTok e repassa o código para a ferramenta local
+// da Aprimarus (localhost). Página de uso interno.
+const LOCAL = 'http://localhost:5179/callback';
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <title>Conectando ao TikTok…</title>
+    <style>
+      body { font-family: system-ui, sans-serif; background:#0A0A0A; color:#fff; display:flex; min-height:100vh; align-items:center; justify-content:center; margin:0; }
+      .box { max-width:520px; padding:2rem; text-align:center; }
+      code { background:#1a1a1a; padding:.4rem .6rem; border-radius:6px; word-break:break-all; display:inline-block; margin-top:.5rem; }
+      a { color:#ff6b6b; }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>Conectando ao TikTok…</h1>
+      <p id="msg">Redirecionando para a ferramenta local da Aprimarus.</p>
+      <p id="fallback" style="display:none">
+        Se não abrir sozinho, copie o código abaixo e cole na ferramenta:<br />
+        <code id="code"></code>
+      </p>
+    </div>
+    <script define:vars={{ LOCAL }}>
+      const q = window.location.search;
+      const params = new URLSearchParams(q);
+      const code = params.get('code');
+      document.getElementById('code').textContent = code || '(sem código)';
+      if (code) {
+        // tenta repassar pra ferramenta local
+        window.location.replace(LOCAL + q);
+        setTimeout(() => {
+          document.getElementById('msg').textContent = 'A ferramenta local não respondeu.';
+          document.getElementById('fallback').style.display = 'block';
+        }, 2500);
+      } else {
+        document.getElementById('msg').textContent = 'Erro: nenhum código recebido do TikTok.';
+      }
+    </script>
+  </body>
+</html>
