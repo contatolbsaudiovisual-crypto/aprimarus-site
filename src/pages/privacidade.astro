@@ -1,0 +1,156 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const atualizadoEm = '26 de agosto de 2026';
+---
+<Layout
+  title="Política de Privacidade | Aprimarus"
+  description="Como a Aprimarus coleta, usa e protege dados no site aprimarus.com.br e na ferramenta interna de publicação de conteúdo (Instagram, TikTok, LinkedIn e Threads)."
+>
+  <main class="pt-28 pb-20">
+    <article class="max-w-3xl mx-auto px-6">
+      <p class="text-sm text-gray-500 font-semibold mb-3 tracking-widest uppercase">
+        Última atualização: {atualizadoEm}
+      </p>
+      <h1 class="font-display text-3xl sm:text-4xl md:text-5xl uppercase leading-tight text-foreground mb-8">
+        Política de Privacidade
+      </h1>
+
+      <p class="bg-soft border-l-4 border-primary p-5 rounded-md text-gray-800 mb-10">
+        Esta política explica quais dados a Aprimarus trata, para quê e como os protegemos —
+        tanto no site <strong>aprimarus.com.br</strong> quanto na ferramenta interna{' '}
+        <strong>“Aprimarus Publisher”</strong>, que integra as APIs oficiais do Instagram, do
+        TikTok, do LinkedIn e do Threads para publicar o conteúdo das próprias contas da Aprimarus.
+      </p>
+
+      <div class="post-content text-lg">
+        <h2>1. Quem é o controlador</h2>
+        <p>
+          <strong>DI BARTOLOMEO PRODUÇÕES AUDIOVISUAIS LTDA</strong> (“Aprimarus”),
+          CNPJ 49.201.714/0001-57, sediada em Campinas/SP, Brasil.
+          Contato para assuntos de privacidade: <strong>contatolbsaudiovisual@gmail.com</strong>.
+        </p>
+
+        <h2>2. A que esta política se aplica</h2>
+        <ul>
+          <li><strong>Site institucional</strong> (aprimarus.com.br): navegação, formulário de contato e medição de audiência.</li>
+          <li>
+            <strong>Ferramenta “Aprimarus Publisher”</strong>: software de uso interno da Aprimarus
+            que se conecta às contas <em>da própria Aprimarus</em> no Instagram, TikTok, LinkedIn e
+            Threads para republicar automaticamente o conteúdo já produzido pela empresa. A ferramenta
+            <strong>não é oferecida a terceiros</strong> e não processa dados de outros usuários.
+          </li>
+        </ul>
+
+        <h2>3. Dados tratados no site</h2>
+        <ul>
+          <li><strong>Dados de contato</strong> que você mesmo informa no formulário (nome, e-mail, telefone/WhatsApp, e o que escrever na mensagem), usados apenas para responder e avaliar uma possível parceria.</li>
+          <li><strong>Dados de navegação</strong> (endereço IP, tipo de dispositivo e navegador, páginas visitadas), coletados via Google Tag Manager / Google Analytics para entender o desempenho do site.</li>
+          <li><strong>Cookies</strong> essenciais e de análise. Você pode bloqueá-los nas configurações do seu navegador.</li>
+        </ul>
+
+        <h2>4. Dados tratados pela ferramenta “Aprimarus Publisher”</h2>
+        <p>
+          A ferramenta usa exclusivamente as contas oficiais da Aprimarus. Em nenhum caso ela
+          acessa contas, mensagens ou dados de outras pessoas.
+        </p>
+        <ul>
+          <li>
+            <strong>Instagram e Threads (APIs da Meta):</strong> leitura das mídias e legendas
+            publicadas nas contas da Aprimarus e publicação de novos conteúdos em nome dela.
+            Escopos usados: informações básicas do perfil, publicação de conteúdo, gestão de
+            comentários e métricas.
+          </li>
+          <li>
+            <strong>TikTok (Login Kit + Content Posting API):</strong> leitura do perfil básico da
+            conta da Aprimarus (identificador aberto, nome de exibição e avatar) e envio de vídeos
+            <strong>como rascunho</strong> para a caixa de entrada da própria conta, onde um membro
+            da equipe finaliza e publica manualmente. Escopos: <code>user.info.basic</code>,
+            <code>video.upload</code>.
+          </li>
+          <li>
+            <strong>LinkedIn:</strong> leitura de nome, foto e e-mail do perfil que autoriza o app,
+            e publicação de textos em nome desse perfil. Escopos: <code>openid</code>,
+            <code>profile</code>, <code>email</code>, <code>w_member_social</code>.
+          </li>
+          <li>
+            <strong>Tokens de acesso</strong> fornecidos por essas plataformas ficam armazenados
+            apenas no ambiente controlado da Aprimarus, não são exibidos a terceiros nem enviados a
+            outros serviços.
+          </li>
+        </ul>
+
+        <h2>5. Finalidades e base legal (LGPD)</h2>
+        <ul>
+          <li><strong>Responder contatos e propostas comerciais</strong> — base legal: procedimentos preliminares a um contrato, a pedido do titular (art. 7º, V).</li>
+          <li><strong>Medir e melhorar o site</strong> — base legal: legítimo interesse (art. 7º, IX).</li>
+          <li><strong>Operar a ferramenta de publicação</strong> — base legal: legítimo interesse da Aprimarus em divulgar o próprio conteúdo, tratando apenas dados das próprias contas.</li>
+        </ul>
+
+        <h2>6. Compartilhamento de dados</h2>
+        <p>
+          A Aprimarus não vende dados. Compartilhamos o mínimo necessário com operadores que
+          viabilizam os serviços:
+        </p>
+        <ul>
+          <li><strong>Meta Platforms, TikTok e LinkedIn</strong> — quando o conteúdo é publicado ou lido por meio de suas APIs oficiais.</li>
+          <li><strong>Google</strong> — Google Tag Manager e Google Analytics para estatísticas do site.</li>
+          <li><strong>Autoridades públicas</strong> — apenas mediante obrigação legal ou ordem judicial.</li>
+        </ul>
+
+        <h2>7. Retenção</h2>
+        <ul>
+          <li>Dados de contato do formulário: mantidos enquanto houver relacionamento comercial ativo e por até 5 anos após o último contato, para fins legais.</li>
+          <li>Dados de navegação/analytics: conforme a política de retenção do Google Analytics (até 14 meses).</li>
+          <li>Tokens e credenciais das APIs: mantidos apenas enquanto a integração estiver ativa; revogados imediatamente quando não forem mais necessários.</li>
+        </ul>
+
+        <h2>8. Segurança</h2>
+        <p>
+          Adotamos medidas técnicas e organizacionais razoáveis para proteger os dados, incluindo
+          acesso restrito, armazenamento de credenciais fora de repositórios públicos e uso apenas
+          de conexões seguras (HTTPS). Nenhum sistema é 100% infalível, mas tratamos qualquer
+          incidente com seriedade e nas formas exigidas pela LGPD.
+        </p>
+
+        <h2>9. Seus direitos</h2>
+        <p>Nos termos da LGPD (art. 18), você pode solicitar a qualquer momento:</p>
+        <ul>
+          <li>confirmação de que tratamos seus dados e acesso a eles;</li>
+          <li>correção de dados incompletos ou desatualizados;</li>
+          <li>anonimização, bloqueio ou eliminação de dados desnecessários;</li>
+          <li>portabilidade e informação sobre com quem compartilhamos;</li>
+          <li>eliminação dos dados tratados com base no seu consentimento;</li>
+          <li>revogação do consentimento.</li>
+        </ul>
+        <p>
+          Basta escrever para <strong>contatolbsaudiovisual@gmail.com</strong>. Respondemos no prazo
+          legal.
+        </p>
+
+        <h2>10. Como revogar o acesso da ferramenta às contas sociais</h2>
+        <p>
+          Os acessos concedidos pelo Instagram/Threads, TikTok e LinkedIn à ferramenta “Aprimarus
+          Publisher” podem ser revogados a qualquer momento nas configurações de “apps e sites
+          conectados” de cada plataforma, ou entrando em contato conosco. A revogação invalida
+          imediatamente os tokens correspondentes.
+        </p>
+
+        <h2>11. Alterações nesta política</h2>
+        <p>
+          Podemos atualizar este documento para refletir mudanças legais ou operacionais. A versão
+          vigente é sempre a publicada nesta página, com a data de atualização no topo.
+        </p>
+
+        <h2>12. Contato</h2>
+        <p>
+          Dúvidas sobre privacidade e proteção de dados: <strong>contatolbsaudiovisual@gmail.com</strong>.
+        </p>
+      </div>
+
+      <p class="mt-12 text-sm text-gray-500">
+        Veja também os nossos <a href="/termos" class="text-primary font-semibold hover:underline">Termos de Uso</a>.
+      </p>
+    </article>
+  </main>
+</Layout>
