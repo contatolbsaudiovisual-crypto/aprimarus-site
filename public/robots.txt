@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
 
 # Libera explicitamente os bots de IA (GEO)
 User-agent: GPTBot
