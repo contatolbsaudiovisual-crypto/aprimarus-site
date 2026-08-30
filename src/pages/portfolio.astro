@@ -2,30 +2,31 @@
 import Layout from '../layouts/Layout.astro';
 import VideosVirais from '../components/VideosVirais.astro';
 import ParedeDeRostos from '../components/ParedeDeRostos.astro';
+import Icon from '../components/Icon.astro';
 
 const cases = [
   {
     img: '/assets/case-1.webp',
     alt: 'Aumento de 1907% nas visualizações e 1527% na receita com otimização SEO Aprimarus',
     stats: [
-      { icon: 'ph-trend-up', label: '+1.907% Visualizações' },
-      { icon: 'ph-currency-circle-dollar', label: '+1.527% Receita' },
+      { icon: 'trend-up', label: '+1.907% Visualizações' },
+      { icon: 'currency-circle-dollar', label: '+1.527% Receita' },
     ],
   },
   {
     img: '/assets/case-2.webp',
     alt: 'Estratégia de retenção no YouTube gerando aumento de 184% nas views - Aprimarus',
     stats: [
-      { icon: 'ph-trend-up', label: '+184% Visualizações' },
-      { icon: 'ph-trend-up', label: '+125% Retenção' },
+      { icon: 'trend-up', label: '+184% Visualizações' },
+      { icon: 'trend-up', label: '+125% Retenção' },
     ],
   },
   {
     img: '/assets/case-3.webp',
     alt: 'Crescimento acelerado de 4480% em inscritos através de vídeos otimizados - Aprimarus',
     stats: [
-      { icon: 'ph-trend-up', label: '+390% Visualizações' },
-      { icon: 'ph-trend-up', label: '+4.480% Inscritos' },
+      { icon: 'trend-up', label: '+390% Visualizações' },
+      { icon: 'trend-up', label: '+4.480% Inscritos' },
     ],
   },
 ];
@@ -110,7 +111,7 @@ const videoSchema = [...videosLongos, ...shorts].map((v) => ({
             <div class="mt-4 flex flex-wrap justify-center gap-2 w-full">
               {c.stats.map((s) => (
                 <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-growth-bg text-growth font-bold text-sm">
-                  <i class={`ph-bold ${s.icon}`}></i> {s.label}
+                  <Icon name={s.icon} weight="bold" /> {s.label}
                 </span>
               ))}
             </div>
@@ -148,7 +149,7 @@ const videoSchema = [...videosLongos, ...shorts].map((v) => ({
                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               <span class="absolute inset-0 grid place-items-center bg-black/25 group-hover:bg-black/10 transition-colors">
                 <span class="w-12 h-12 rounded-full bg-primary grid place-items-center shadow-elegant">
-                  <i class="ph-fill ph-play text-white text-xl ml-0.5"></i>
+                  <Icon name="play" weight="fill" class="text-white text-xl ml-0.5" />
                 </span>
               </span>
             </button>
@@ -167,7 +168,7 @@ const videoSchema = [...videosLongos, ...shorts].map((v) => ({
                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               <span class="absolute inset-0 grid place-items-center bg-black/25 group-hover:bg-black/10 transition-colors">
                 <span class="w-12 h-12 rounded-full bg-primary grid place-items-center shadow-elegant">
-                  <i class="ph-fill ph-play text-white text-xl ml-0.5"></i>
+                  <Icon name="play" weight="fill" class="text-white text-xl ml-0.5" />
                 </span>
               </span>
             </button>

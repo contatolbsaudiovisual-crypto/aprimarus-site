@@ -1,0 +1,26 @@
+---
+// Ícone inline via <use> apontando pro sprite em /icons-sprite.svg.
+// Substitui a fonte de ícone externa (jsdelivr, 3 arquivos, ~99% não usado)
+// por 21 símbolos SVG inline, ~8KB, sem request extra e sem font-swap.
+interface Props {
+  name: string;
+  weight?: 'regular' | 'bold' | 'fill';
+  class?: string;
+  ariaHidden?: boolean;
+}
+const { name, weight = 'regular', class: cls = '', ariaHidden = true } = Astro.props;
+const id = weight === 'regular' ? name : `${weight}-${name}`;
+---
+<svg class={`icon-svg ${cls}`} aria-hidden={ariaHidden ? 'true' : undefined} focusable="false">
+  <use href={`#icon-${id}`}></use>
+</svg>
+
+<style>
+  .icon-svg {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    display: inline-block;
+    vertical-align: -0.125em;
+  }
+</style>

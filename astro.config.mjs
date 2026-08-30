@@ -10,4 +10,11 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  build: {
+    // O CSS compilado do site inteiro fica em ~31KB, pequeno o bastante para
+    // inlinear direto no HTML em vez de um <link> separado, o que elimina uma
+    // requisição bloqueante de render por página (era o maior item isolado do
+    // relatório de "render-blocking requests" do Lighthouse).
+    inlineStylesheets: 'always',
+  },
 });

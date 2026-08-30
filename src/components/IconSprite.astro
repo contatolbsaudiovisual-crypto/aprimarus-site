@@ -1,0 +1,15 @@
+---
+// Injeta o sprite de ícones inline no HTML uma vez por página, dentro de um
+// <svg> escondido logo após o <body>. Os componentes Icon.astro referenciam
+// os símbolos por #id no mesmo documento (href="#icon-nome"), sem request
+// de rede extra e sem depender de <use> cross-document (que tem suporte
+// inconsistente no Safari).
+//
+// Import `?raw` do Vite: o conteúdo do arquivo vira string no bundle, resolvido
+// em build time. Evita ler do disco em runtime, que quebra porque a estrutura
+// de dist/ não espelha src/ (fileURLToPath + readFileSync falha no build estático).
+import spriteRaw from '../data/icons-sprite-source.svg?raw';
+
+const inner = spriteRaw.replace(/^<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '');
+---
+<svg style="display:none" aria-hidden="true" set:html={inner} />

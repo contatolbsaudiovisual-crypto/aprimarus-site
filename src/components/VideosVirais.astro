@@ -1,5 +1,6 @@
 ---
 import dados from '../data/videos-destaque.json';
+import Icon from './Icon.astro';
 
 const nf = new Intl.NumberFormat('pt-BR');
 const longos = dados.videos.filter((v) => v.formato === 'longo');
@@ -27,7 +28,7 @@ const shorts = dados.videos.filter((v) => v.formato === 'short');
                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
             <span class="absolute inset-0 grid place-items-center bg-black/25 group-hover:bg-black/10 transition-colors">
               <span class="w-14 h-14 rounded-full bg-primary grid place-items-center shadow-elegant">
-                <i class="ph-fill ph-play text-white text-2xl ml-0.5"></i>
+                <Icon name="play" weight="fill" class="text-white text-2xl ml-0.5" />
               </span>
             </span>
           </button>
@@ -60,7 +61,7 @@ const shorts = dados.videos.filter((v) => v.formato === 'short');
                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
             <span class="absolute inset-0 grid place-items-center bg-black/25 group-hover:bg-black/10 transition-colors">
               <span class="w-14 h-14 rounded-full bg-primary grid place-items-center shadow-elegant">
-                <i class="ph-fill ph-play text-white text-2xl ml-0.5"></i>
+                <Icon name="play" weight="fill" class="text-white text-2xl ml-0.5" />
               </span>
             </span>
           </button>

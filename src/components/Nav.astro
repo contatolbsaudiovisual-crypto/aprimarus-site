@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro';
 const path = Astro.url.pathname;
 const isActive = (href) => (href === '/' ? path === '/' : path.startsWith(href));
 ---
@@ -17,10 +18,10 @@ const isActive = (href) => (href === '/' ? path === '/' : path.startsWith(href))
 
     <div class="flex items-center gap-3 md:hidden">
       <button type="button" onclick="openModal()" class="bg-primary text-white text-xs font-bold px-3 py-2 rounded inline-flex items-center gap-1 shadow-sm">
-        <i class="ph-bold ph-whatsapp text-sm"></i> Contato
+        <Icon name="whatsapp" weight="bold" class="text-sm" /> Contato
       </button>
       <button class="text-2xl text-foreground" id="mobile-menu-btn" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobile-menu">
-        <i class="ph ph-list"></i>
+        <Icon name="list" class="text-2xl" />
       </button>
     </div>
   </div>

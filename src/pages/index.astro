@@ -5,6 +5,7 @@ import BarraCredibilidade from '../components/BarraCredibilidade.astro';
 import ParedeDeRostos from '../components/ParedeDeRostos.astro';
 import VideosVirais from '../components/VideosVirais.astro';
 import RedesSociais from '../components/RedesSociais.astro';
+import Icon from '../components/Icon.astro';
 
 const depoimentos = [
   { img: '/assets/depoimento-5.webp', frase: 'Você simplesmente arrasou. Edição impecável.' },
@@ -65,10 +66,10 @@ const depoimentos = [
           </p>
 
           <ul class="space-y-3 mb-10">
-            <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-1"></i><span class="text-gray-800">Canal parado há meses? A gente estrutura e recoloca no ar.</span></li>
-            <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-1"></i><span class="text-gray-800">Já tentou com freelancer e não andou? O problema era não ter ninguém decidindo o tema.</span></li>
-            <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-1"></i><span class="text-gray-800">Não tem tempo nem equipe? É literalmente o serviço.</span></li>
-            <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-1"></i><span class="text-gray-800">Quer paciente, aluno ou cliente entrando pelo YouTube? É para isso que a gente existe.</span></li>
+            <li class="flex gap-3 items-start"><Icon name="check" weight="bold" class="text-primary mt-1" /><span class="text-gray-800">Canal parado há meses? A gente estrutura e recoloca no ar.</span></li>
+            <li class="flex gap-3 items-start"><Icon name="check" weight="bold" class="text-primary mt-1" /><span class="text-gray-800">Já tentou com freelancer e não andou? O problema era não ter ninguém decidindo o tema.</span></li>
+            <li class="flex gap-3 items-start"><Icon name="check" weight="bold" class="text-primary mt-1" /><span class="text-gray-800">Não tem tempo nem equipe? É literalmente o serviço.</span></li>
+            <li class="flex gap-3 items-start"><Icon name="check" weight="bold" class="text-primary mt-1" /><span class="text-gray-800">Quer paciente, aluno ou cliente entrando pelo YouTube? É para isso que a gente existe.</span></li>
           </ul>
 
           <button type="button" onclick="openModal()" class="inline-flex items-center justify-center bg-primary text-white font-semibold px-8 py-4 rounded-md hover:bg-primary/90 transition-colors text-lg shadow-lg">
@@ -77,13 +78,13 @@ const depoimentos = [
         </div>
 
         <div class="w-full lg:w-1/2 relative">
-          <img src="/assets/depois.webp" alt="Gráfico de crescimento de canal com a Agência Aprimarus - Aumento de visualizações e retenção" width="600" height="400" fetchpriority="high" decoding="async" class="w-full h-auto rounded-2xl shadow-elegant border border-gray-200 object-contain">
+          <img src="/assets/depois.webp" alt="Gráfico de crescimento de canal com a Agência Aprimarus - Aumento de visualizações e retenção" width="900" height="503" fetchpriority="high" decoding="async" class="w-full h-auto rounded-2xl shadow-elegant border border-gray-200 object-contain">
           <div class="mt-4 flex flex-wrap justify-center lg:justify-start gap-3 w-full">
             <span class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-growth-bg text-growth font-bold text-sm">
-              <i class="ph-bold ph-trend-up"></i> +184% Visualizações
+              <Icon name="trend-up" weight="bold" /> +184% Visualizações
             </span>
             <span class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-growth-bg text-growth font-bold text-sm">
-              <i class="ph-bold ph-trend-up"></i> +125% Retenção
+              <Icon name="trend-up" weight="bold" /> +125% Retenção
             </span>
           </div>
         </div>
@@ -114,17 +115,17 @@ const depoimentos = [
           <div class="p-5 md:p-6 bg-gray-900 font-semibold text-gray-300 uppercase text-xs md:text-sm tracking-wider">Sem a Aprimarus</div>
           <div class="p-5 md:p-6 bg-primary text-white font-semibold uppercase text-xs md:text-sm tracking-wider">Com a Aprimarus</div>
 
-          <div class="p-5 border-t border-gray-800 flex gap-3"><i class="ph ph-x text-gray-500 mt-1 flex-shrink-0"></i><span class="text-gray-200 text-sm">Posta sem SEO, ninguém acha</span></div>
-          <div class="p-5 border-t border-gray-800 bg-gray-900 flex gap-3"><i class="ph-bold ph-check text-primary mt-1 flex-shrink-0"></i><span class="text-white text-sm">Cada vídeo posicionado nas buscas</span></div>
+          <div class="p-5 border-t border-gray-800 flex gap-3"><Icon name="x" class="text-gray-500 mt-1 flex-shrink-0" /><span class="text-gray-200 text-sm">Posta sem SEO, ninguém acha</span></div>
+          <div class="p-5 border-t border-gray-800 bg-gray-900 flex gap-3"><Icon name="check" weight="bold" class="text-primary mt-1 flex-shrink-0" /><span class="text-white text-sm">Cada vídeo posicionado nas buscas</span></div>
 
-          <div class="p-5 border-t border-gray-800 flex gap-3"><i class="ph ph-x text-gray-500 mt-1 flex-shrink-0"></i><span class="text-gray-200 text-sm">Vídeo some em dias</span></div>
-          <div class="p-5 border-t border-gray-800 bg-gray-900 flex gap-3"><i class="ph-bold ph-check text-primary mt-1 flex-shrink-0"></i><span class="text-white text-sm">Vídeo aparece nas buscas por anos</span></div>
+          <div class="p-5 border-t border-gray-800 flex gap-3"><Icon name="x" class="text-gray-500 mt-1 flex-shrink-0" /><span class="text-gray-200 text-sm">Vídeo some em dias</span></div>
+          <div class="p-5 border-t border-gray-800 bg-gray-900 flex gap-3"><Icon name="check" weight="bold" class="text-primary mt-1 flex-shrink-0" /><span class="text-white text-sm">Vídeo aparece nas buscas por anos</span></div>
 
-          <div class="p-5 border-t border-gray-800 flex gap-3"><i class="ph ph-x text-gray-500 mt-1 flex-shrink-0"></i><span class="text-gray-200 text-sm">Sem dados, sem direção</span></div>
-          <div class="p-5 border-t border-gray-800 bg-gray-900 flex gap-3"><i class="ph-bold ph-check text-primary mt-1 flex-shrink-0"></i><span class="text-white text-sm">Análise mensal de performance real</span></div>
+          <div class="p-5 border-t border-gray-800 flex gap-3"><Icon name="x" class="text-gray-500 mt-1 flex-shrink-0" /><span class="text-gray-200 text-sm">Sem dados, sem direção</span></div>
+          <div class="p-5 border-t border-gray-800 bg-gray-900 flex gap-3"><Icon name="check" weight="bold" class="text-primary mt-1 flex-shrink-0" /><span class="text-white text-sm">Análise mensal de performance real</span></div>
 
-          <div class="p-5 border-t border-gray-800 flex gap-3"><i class="ph ph-x text-gray-500 mt-1 flex-shrink-0"></i><span class="text-gray-200 text-sm">3 profissionais para coordenar</span></div>
-          <div class="p-5 border-t border-gray-800 bg-gray-900 flex gap-3"><i class="ph-bold ph-check text-primary mt-1 flex-shrink-0"></i><span class="text-white text-sm">Um único ponto de contato</span></div>
+          <div class="p-5 border-t border-gray-800 flex gap-3"><Icon name="x" class="text-gray-500 mt-1 flex-shrink-0" /><span class="text-gray-200 text-sm">3 profissionais para coordenar</span></div>
+          <div class="p-5 border-t border-gray-800 bg-gray-900 flex gap-3"><Icon name="check" weight="bold" class="text-primary mt-1 flex-shrink-0" /><span class="text-white text-sm">Um único ponto de contato</span></div>
         </div>
       </div>
     </Reveal>
@@ -136,12 +137,12 @@ const depoimentos = [
         <div class="w-16 h-1 bg-primary mx-auto mb-12"></div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          <div class="p-6 rounded-xl border border-border shadow-card"><i class="ph ph-heartbeat text-3xl text-primary mb-4 block"></i><p class="text-gray-800">Você atende bem, seus pacientes ou alunos te elogiam, e mesmo assim ninguém novo te encontra.</p></div>
-          <div class="p-6 rounded-xl border border-border shadow-card"><i class="ph ph-film-strip text-3xl text-primary mb-4 block"></i><p class="text-gray-800">Você já gravou vídeo bom que morreu com 200 views porque ninguém pensou em título e capa.</p></div>
-          <div class="p-6 rounded-xl border border-border shadow-card"><i class="ph ph-users-three text-3xl text-primary mb-4 block"></i><p class="text-gray-800">Você tem um editor, tem um designer, e continua sendo quem decide o tema todo mês.</p></div>
-          <div class="p-6 rounded-xl border border-border shadow-card"><i class="ph ph-magnifying-glass text-3xl text-primary mb-4 block"></i><p class="text-gray-800">Seu concorrente aparece no YouTube quando alguém pesquisa o que você faz melhor que ele.</p></div>
-          <div class="p-6 rounded-xl border border-border shadow-card"><i class="ph ph-eyeglasses text-3xl text-primary mb-4 block"></i><p class="text-gray-800">Você quer aparecer, mas não quer virar influenciador nem dançar para o algoritmo.</p></div>
-          <div class="p-6 rounded-xl border border-border shadow-card"><i class="ph ph-chart-bar text-3xl text-primary mb-4 block"></i><p class="text-gray-800">Você quer olhar um número no fim do mês e entender o que fazer no mês seguinte.</p></div>
+          <div class="p-6 rounded-xl border border-border shadow-card"><Icon name="heartbeat" class="text-3xl text-primary mb-4 block" /><p class="text-gray-800">Você atende bem, seus pacientes ou alunos te elogiam, e mesmo assim ninguém novo te encontra.</p></div>
+          <div class="p-6 rounded-xl border border-border shadow-card"><Icon name="film-strip" class="text-3xl text-primary mb-4 block" /><p class="text-gray-800">Você já gravou vídeo bom que morreu com 200 views porque ninguém pensou em título e capa.</p></div>
+          <div class="p-6 rounded-xl border border-border shadow-card"><Icon name="users-three" class="text-3xl text-primary mb-4 block" /><p class="text-gray-800">Você tem um editor, tem um designer, e continua sendo quem decide o tema todo mês.</p></div>
+          <div class="p-6 rounded-xl border border-border shadow-card"><Icon name="magnifying-glass" class="text-3xl text-primary mb-4 block" /><p class="text-gray-800">Seu concorrente aparece no YouTube quando alguém pesquisa o que você faz melhor que ele.</p></div>
+          <div class="p-6 rounded-xl border border-border shadow-card"><Icon name="eyeglasses" class="text-3xl text-primary mb-4 block" /><p class="text-gray-800">Você quer aparecer, mas não quer virar influenciador nem dançar para o algoritmo.</p></div>
+          <div class="p-6 rounded-xl border border-border shadow-card"><Icon name="chart-bar" class="text-3xl text-primary mb-4 block" /><p class="text-gray-800">Você quer olhar um número no fim do mês e entender o que fazer no mês seguinte.</p></div>
         </div>
 
         <div class="text-center">
@@ -167,10 +168,10 @@ const depoimentos = [
               <p class="mt-3 text-sm font-semibold text-foreground">Dr. Igor Steinmeyer · gestão para dentistas</p>
               <div class="mt-2 flex flex-wrap justify-center gap-2 w-full">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-growth-bg text-growth font-bold text-sm">
-                  <i class="ph-bold ph-trend-up"></i> +1.907% Visualizações
+                  <Icon name="trend-up" weight="bold" /> +1.907% Visualizações
                 </span>
                 <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-growth-bg text-growth font-bold text-sm">
-                  <i class="ph-bold ph-currency-circle-dollar"></i> +1.527% Receita
+                  <Icon name="currency-circle-dollar" weight="bold" /> +1.527% Receita
                 </span>
               </div>
             </div>
@@ -180,10 +181,10 @@ const depoimentos = [
               <p class="mt-3 text-sm font-semibold text-foreground">Carteira de saúde · autoridade e retenção</p>
               <div class="mt-2 flex flex-wrap justify-center gap-2 w-full">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-growth-bg text-growth font-bold text-sm">
-                  <i class="ph-bold ph-trend-up"></i> +184% Visualizações
+                  <Icon name="trend-up" weight="bold" /> +184% Visualizações
                 </span>
                 <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-growth-bg text-growth font-bold text-sm">
-                  <i class="ph-bold ph-trend-up"></i> +125% Retenção
+                  <Icon name="trend-up" weight="bold" /> +125% Retenção
                 </span>
               </div>
             </div>
@@ -193,10 +194,10 @@ const depoimentos = [
               <p class="mt-3 text-sm font-semibold text-foreground">Canal começado do zero · efeito composto em 3 meses</p>
               <div class="mt-2 flex flex-wrap justify-center gap-2 w-full">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-growth-bg text-growth font-bold text-sm">
-                  <i class="ph-bold ph-trend-up"></i> +390% Visualizações
+                  <Icon name="trend-up" weight="bold" /> +390% Visualizações
                 </span>
                 <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-growth-bg text-growth font-bold text-sm">
-                  <i class="ph-bold ph-trend-up"></i> +4.480% Inscritos
+                  <Icon name="trend-up" weight="bold" /> +4.480% Inscritos
                 </span>
               </div>
             </div>
@@ -219,7 +220,7 @@ const depoimentos = [
           </div>
           <div class="text-center mt-12">
             <a href="/portfolio" class="inline-flex items-center gap-2 font-semibold text-primary hover:text-primary/80 transition-colors border-b-2 border-primary pb-1">
-              Ver portfólio completo e mais depoimentos <i class="ph-bold ph-arrow-right"></i>
+              Ver portfólio completo e mais depoimentos <Icon name="arrow-right" weight="bold" />
             </a>
           </div>
         </div>
@@ -309,7 +310,7 @@ const depoimentos = [
             Modelos de <span class="text-primary">Parceria</span>
           </h2>
           <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-growth-bg text-growth font-bold text-base sm:text-lg mb-5">
-            <i class="ph-bold ph-tag"></i> A partir de R$ 3.000/mês
+            <Icon name="tag" weight="bold" /> A partir de R$ 3.000/mês
           </span>
           <p class="text-gray-600 max-w-2xl mx-auto text-base">
             Qual plano serve para você depende da frequência que você consegue gravar, e a gente descobre isso em quinze minutos de conversa.
@@ -321,11 +322,11 @@ const depoimentos = [
             <h3 class="font-display text-2xl uppercase mb-1">Essencial</h3>
             <p class="text-gray-600 text-sm mb-6 h-10">Para quem quer começar com consistência</p>
             <ul class="space-y-4 mb-8 flex-1 text-sm text-gray-700">
-              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-0.5"></i> 4 vídeos por mês (1x por semana)</li>
-              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-0.5"></i> SEO completo em cada publicação</li>
-              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-0.5"></i> Thumbnails otimizadas para clique</li>
-              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-0.5"></i> Estruturação do canal</li>
-              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-0.5"></i> Relatório mensal e suporte</li>
+              <li class="flex gap-3 items-start"><Icon name="check" weight="bold" class="text-primary mt-0.5" /> 4 vídeos por mês (1x por semana)</li>
+              <li class="flex gap-3 items-start"><Icon name="check" weight="bold" class="text-primary mt-0.5" /> SEO completo em cada publicação</li>
+              <li class="flex gap-3 items-start"><Icon name="check" weight="bold" class="text-primary mt-0.5" /> Thumbnails otimizadas para clique</li>
+              <li class="flex gap-3 items-start"><Icon name="check" weight="bold" class="text-primary mt-0.5" /> Estruturação do canal</li>
+              <li class="flex gap-3 items-start"><Icon name="check" weight="bold" class="text-primary mt-0.5" /> Relatório mensal e suporte</li>
             </ul>
             <button type="button" onclick="openModal()" class="w-full text-center border-2 border-gray-200 text-foreground font-semibold py-3.5 rounded-md hover:border-foreground transition-colors">
               Falar sobre o Essencial &rarr;
@@ -334,17 +335,17 @@ const depoimentos = [
 
           <div class="bg-primary text-white rounded-2xl p-8 shadow-elegant flex flex-col relative transform md:-translate-y-4 border-2 border-primary">
             <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-foreground text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1 uppercase tracking-wider">
-              <i class="ph-fill ph-star"></i> Mais escolhido
+              <Icon name="star" weight="fill" /> Mais escolhido
             </div>
             <h3 class="font-display text-2xl uppercase mb-1">Pro</h3>
             <p class="text-gray-100 text-sm mb-6 h-10">Para quem quer crescimento acelerado</p>
             <ul class="space-y-4 mb-8 flex-1 text-sm text-gray-100">
-              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-white mt-0.5"></i> 8 vídeos por mês (2x por semana)</li>
-              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-white mt-0.5"></i> SEO completo em cada publicação</li>
-              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-white mt-0.5"></i> Thumbnails otimizadas para clique</li>
-              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-white mt-0.5"></i> Estruturação do canal</li>
-              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-white mt-0.5"></i> Reels e anúncios ilimitados</li>
-              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-white mt-0.5"></i> Relatório mensal com o que mudou e o que muda no mês seguinte</li>
+              <li class="flex gap-3 items-start"><Icon name="check" weight="bold" class="text-white mt-0.5" /> 8 vídeos por mês (2x por semana)</li>
+              <li class="flex gap-3 items-start"><Icon name="check" weight="bold" class="text-white mt-0.5" /> SEO completo em cada publicação</li>
+              <li class="flex gap-3 items-start"><Icon name="check" weight="bold" class="text-white mt-0.5" /> Thumbnails otimizadas para clique</li>
+              <li class="flex gap-3 items-start"><Icon name="check" weight="bold" class="text-white mt-0.5" /> Estruturação do canal</li>
+              <li class="flex gap-3 items-start"><Icon name="check" weight="bold" class="text-white mt-0.5" /> Reels e anúncios ilimitados</li>
+              <li class="flex gap-3 items-start"><Icon name="check" weight="bold" class="text-white mt-0.5" /> Relatório mensal com o que mudou e o que muda no mês seguinte</li>
             </ul>
             <button type="button" onclick="openModal()" class="w-full text-center bg-white text-primary font-semibold py-3.5 rounded-md hover:bg-gray-100 transition-colors">
               Quero o plano Pro &rarr;
@@ -355,12 +356,12 @@ const depoimentos = [
             <h3 class="font-display text-2xl uppercase mb-1">Scale</h3>
             <p class="text-gray-600 text-sm mb-6 h-10">Para quem quer dominar o nicho</p>
             <ul class="space-y-4 mb-8 flex-1 text-sm text-gray-700">
-              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-0.5"></i> 12 vídeos por mês (3x por semana)</li>
-              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-0.5"></i> SEO completo em cada publicação</li>
-              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-0.5"></i> Thumbnails otimizadas para clique</li>
-              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-0.5"></i> Reels e anúncios ilimitados</li>
-              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-0.5"></i> Carrosséis para Instagram</li>
-              <li class="flex gap-3 items-start"><i class="ph-bold ph-check text-primary mt-0.5"></i> Relatório mensal com o que mudou e o que muda no mês seguinte</li>
+              <li class="flex gap-3 items-start"><Icon name="check" weight="bold" class="text-primary mt-0.5" /> 12 vídeos por mês (3x por semana)</li>
+              <li class="flex gap-3 items-start"><Icon name="check" weight="bold" class="text-primary mt-0.5" /> SEO completo em cada publicação</li>
+              <li class="flex gap-3 items-start"><Icon name="check" weight="bold" class="text-primary mt-0.5" /> Thumbnails otimizadas para clique</li>
+              <li class="flex gap-3 items-start"><Icon name="check" weight="bold" class="text-primary mt-0.5" /> Reels e anúncios ilimitados</li>
+              <li class="flex gap-3 items-start"><Icon name="check" weight="bold" class="text-primary mt-0.5" /> Carrosséis para Instagram</li>
+              <li class="flex gap-3 items-start"><Icon name="check" weight="bold" class="text-primary mt-0.5" /> Relatório mensal com o que mudou e o que muda no mês seguinte</li>
             </ul>
             <button type="button" onclick="openModal()" class="w-full text-center border-2 border-gray-200 text-foreground font-semibold py-3.5 rounded-md hover:border-foreground transition-colors">
               Falar sobre o Scale &rarr;

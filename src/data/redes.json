@@ -1,6 +1,6 @@
 [
-  { "rede": "Instagram", "icone": "ph-instagram-logo", "url": "https://www.instagram.com/leodibarto/" },
-  { "rede": "YouTube",   "icone": "ph-youtube-logo",   "url": "https://www.youtube.com/@leonardoseoyoutube" },
-  { "rede": "TikTok",    "icone": "ph-tiktok-logo",    "url": "https://www.tiktok.com/@leonardo.seoyoutube" },
-  { "rede": "LinkedIn",  "icone": "ph-linkedin-logo",  "url": "https://www.linkedin.com/company/144741992" }
+  { "rede": "Instagram", "icone": "instagram-logo", "url": "https://www.instagram.com/leodibarto/" },
+  { "rede": "YouTube",   "icone": "youtube-logo",   "url": "https://www.youtube.com/@leonardoseoyoutube" },
+  { "rede": "TikTok",    "icone": "tiktok-logo",    "url": "https://www.tiktok.com/@leonardo.seoyoutube" },
+  { "rede": "LinkedIn",  "icone": "linkedin-logo",  "url": "https://www.linkedin.com/company/144741992" }
 ]

@@ -2,6 +2,7 @@
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import LeadModal from '../components/LeadModal.astro';
+import IconSprite from '../components/IconSprite.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -91,22 +92,16 @@ const orgSchema = {
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700&display=swap" />
     </noscript>
 
-    <!-- Phosphor Icons: só os pesos usados no site (regular, bold, fill), carregados de forma assíncrona -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" media="print" onload="this.media='all'" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css" media="print" onload="this.media='all'" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css" />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css" />
-    </noscript>
+    <!-- Ícones: sprite SVG inline próprio (public/icons-sprite.svg), servido do mesmo domínio.
+         Substitui as 3 folhas de estilo do Phosphor via CDN (regular/bold/fill), que eram ~36KB
+         de CSS quase todo não usado mais 3 arquivos de fonte bloqueando o render. -->
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="alternate" type="application/rss+xml" title="Blog da Aprimarus" href="/blog/rss.xml" />
   </head>
   <body class="bg-background text-foreground font-sans antialiased">
+    <IconSprite />
     <Nav />
 
     <slot />
@@ -114,14 +109,23 @@ const orgSchema = {
     <Footer />
     <LeadModal />
 
-    <!-- Google Tag Manager: carregado após o parse do HTML para não competir com o conteúdo principal -->
+    <!-- Google Tag Manager: carregado depois que a página fica ociosa (requestIdleCallback),
+         pra não competir pelo thread principal com o primeiro parse/pintura. GTM continua
+         disparando o page_view normalmente, só adia a inicialização em geral menos de 1s. -->
     <script is:inline>
-      document.addEventListener('DOMContentLoaded', function () {
+      function bootGTM() {
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-KK5V6447');
+      }
+      document.addEventListener('DOMContentLoaded', function () {
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(bootGTM, { timeout: 2000 });
+        } else {
+          setTimeout(bootGTM, 200);
+        }
       });
     </script>
     <!-- End Google Tag Manager -->

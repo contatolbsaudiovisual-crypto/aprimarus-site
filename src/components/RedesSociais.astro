@@ -1,5 +1,6 @@
 ---
 import redes from '../data/redes.json';
+import Icon from './Icon.astro';
 
 interface Props {
   variante?: 'rodape' | 'claro';
@@ -18,7 +19,7 @@ const cor = variante === 'rodape'
         <a href={r.url} target="_blank" rel="noopener noreferrer me"
            aria-label={`Aprimarus no ${r.rede}`}
            class={`text-2xl transition-colors ${cor}`}>
-          <i class={`ph ${r.icone}`} aria-hidden="true"></i>
+          <Icon name={r.icone} class="text-2xl" />
         </a>
       </li>
     ))}

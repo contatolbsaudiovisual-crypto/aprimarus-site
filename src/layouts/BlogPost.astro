@@ -1,5 +1,6 @@
 ---
 import Layout from './Layout.astro';
+import Icon from '../components/Icon.astro';
 
 interface FaqItem {
   pergunta: string;
@@ -52,7 +53,7 @@ const extraSchema = [articleSchema, ...(faqSchema ? [faqSchema] : [])];
   <main class="pt-28 pb-20">
     <article class="max-w-3xl mx-auto px-6">
       <a href="/blog" class="inline-flex items-center gap-2 text-primary font-semibold mb-8 hover:underline">
-        <i class="ph-bold ph-arrow-left"></i> Voltar para o Blog
+        <Icon name="arrow-left" weight="bold" /> Voltar para o Blog
       </a>
 
       <p class="text-sm text-gray-500 font-semibold mb-3 tracking-widest uppercase">
