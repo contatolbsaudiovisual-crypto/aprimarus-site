@@ -1,6 +1,6 @@
 [
   { "slug": "thomy-talks", "nome": "Thomy Talks", "nicho": "Psicologia de relacionamentos",
-    "foto": "/assets/clientes/thomy-talks.webp", "autorizado": false },
+    "foto": "/assets/clientes/thomy-talks.webp", "autorizado": true },
   { "slug": "carol-moya", "nome": "Carol Moya", "nicho": "LinkedIn para negócios",
     "foto": "/assets/clientes/carol-moya.webp", "autorizado": true },
   { "slug": "rafaela-sionek", "nome": "Rafaela Sionek", "nicho": "Advocacia trabalhista",
