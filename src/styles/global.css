@@ -11,11 +11,29 @@
   --color-growth: #2E7D32;
   --color-growth-bg: #E8F5E9;
 
+  --color-brand-50:  #FDF5F5;
+  --color-brand-100: #F7E4E4;
+  --color-brand-300: #C97A7A;
+  --color-brand-600: #7A0A0A;
+  --color-brand-700: #620000;
+  --color-brand-900: #3A0000;
+
+  --color-ink:       #171213;
+  --color-ink-soft:  #4E4245;
+  --color-paper:     #FBFAF9;
+  --color-paper-2:   #F3EFEE;
+  --color-dark:      #120E0F;
+
+  --color-result:    #0B5F57;
+  --color-result-bg: #E3F0EE;
+
   --font-sans: 'Montserrat', sans-serif;
   --font-display: 'Anton', sans-serif;
 
   --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
   --shadow-elegant: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-lift: 0 1px 2px rgba(23,18,19,.05), 0 8px 24px -8px rgba(23,18,19,.12);
+  --shadow-deep: 0 2px 4px rgba(23,18,19,.06), 0 24px 48px -16px rgba(23,18,19,.20);
 }
 
 html {
@@ -46,4 +64,19 @@ body {
   list-style-type: disc;
   padding-left: 1.5rem;
   margin-bottom: 1.5rem;
+}
+
+/* ---------- revelação em scroll e esteira ---------- */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.on { opacity: 1; transform: none; }
+
+@keyframes esteira { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.esteira { display: flex; gap: 2.5rem; width: max-content; animation: esteira 60s linear infinite; }
+.esteira-mask { mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.esteira-wrap:hover .esteira { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .esteira { animation: none; }
+  .esteira-mask { mask-image: none; }
 }

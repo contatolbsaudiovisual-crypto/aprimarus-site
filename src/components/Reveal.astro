@@ -1,0 +1,4 @@
+---
+const { as: Tag = 'div', class: cls = '', delay = 0 } = Astro.props;
+---
+<Tag class={`reveal ${cls}`} style={`transition-delay:${delay}ms`}><slot /></Tag>

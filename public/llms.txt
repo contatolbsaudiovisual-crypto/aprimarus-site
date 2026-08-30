@@ -1,9 +1,9 @@
 # Aprimarus
 
-> Agência de gestão completa e SEO para canais de YouTube, focada em infoprodutores. Estruturação, edição, SEO e distribuição — o cliente só grava.
+> Agência de gestão completa e SEO para canais de YouTube, focada em infoprodutores e profissionais liberais (médicos, dentistas, advogados). Estruturação, edição, SEO e distribuição, o cliente só grava. Planos a partir de R$ 3.000/mês. Atendimento bilíngue, português e espanhol, com base na Argentina.
 
 ## Páginas principais
 
-- [Início](/): Apresentação da Aprimarus, planos (Essencial, Pro, Scale) e processo de trabalho.
-- [Portfólio](/portfolio): Cases reais com métricas validadas pelo YouTube Studio e depoimentos de clientes.
-- [Blog](/blog): Estratégias de SEO e crescimento para canais de YouTube de infoprodutores.
+- [Início](/): Apresentação da Aprimarus, prova social (canais gerenciados, vídeos com resultado real), planos (Essencial, Pro, Scale) e processo de trabalho.
+- [Portfólio](/portfolio): Cases reais com métricas validadas pelo YouTube Studio, vídeos com views e comentários reais, e depoimentos de clientes.
+- [Blog](/blog): Estratégias de SEO e crescimento para canais de YouTube de infoprodutores e profissionais liberais.

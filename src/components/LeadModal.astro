@@ -1,12 +1,12 @@
 ---
 ---
-<div id="lead-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] flex items-center justify-center p-4">
+<div id="lead-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title">
   <div class="bg-white rounded-2xl w-full max-w-md p-6 sm:p-8 relative shadow-elegant">
-    <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-primary transition-colors text-2xl">
+    <button onclick="closeModal()" aria-label="Fechar" class="absolute top-4 right-4 text-gray-400 hover:text-primary transition-colors text-2xl">
       <i class="ph ph-x"></i>
     </button>
 
-    <h3 class="font-display text-2xl uppercase mb-2 text-foreground">Vamos crescer seu canal?</h3>
+    <h3 id="lead-modal-title" class="font-display text-2xl uppercase mb-2 text-foreground">Vamos crescer seu canal?</h3>
     <p class="text-gray-600 text-sm mb-6">Preencha os dados abaixo para analisarmos seu projeto antes da nossa conversa.</p>
 
     <form id="lead-form" class="space-y-4">
@@ -37,12 +37,33 @@
 <script is:inline>
   const modal = document.getElementById('lead-modal');
   const leadForm = document.getElementById('lead-form');
+  let lastFocused = null;
+
+  function getFocusable() {
+    return modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+  }
 
   function openModal() {
+    lastFocused = document.activeElement;
     modal.classList.remove('hidden');
+    const focusable = getFocusable();
+    (focusable[0] || modal).focus();
+    document.addEventListener('keydown', onKeydown);
   }
   function closeModal() {
     modal.classList.add('hidden');
+    document.removeEventListener('keydown', onKeydown);
+    if (lastFocused) lastFocused.focus();
+  }
+  function onKeydown(e) {
+    if (e.key === 'Escape') { closeModal(); return; }
+    if (e.key !== 'Tab') return;
+    const focusable = Array.from(getFocusable());
+    if (focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   }
   window.openModal = openModal;
   window.closeModal = closeModal;
@@ -63,6 +84,9 @@
 
     const numeroAprimarus = '5519991166155';
     const urlWhatsApp = `https://wa.me/${numeroAprimarus}?text=${encodeURIComponent(mensagem)}`;
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'lead_whatsapp_click', form_id: 'lead-form' });
 
     window.open(urlWhatsApp, '_blank');
     closeModal();

@@ -1,0 +1,46 @@
+---
+const stats = [
+  { valor: 5, sufixo: '+', label: 'anos de mercado' },
+  { valor: 25, sufixo: '+', label: 'canais gerenciados' },
+  { valor: 2, sufixo: '', label: 'idiomas (PT e ES)' },
+  { texto: '2023', label: 'LTDA registrada' },
+];
+---
+
+<div class="py-8 bg-soft border-y border-border">
+  <div class="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+    {stats.map((s) => (
+      <div>
+        <div class="font-display text-3xl sm:text-4xl uppercase text-primary tabular-nums" data-count={s.valor ?? undefined}>
+          {s.texto ?? `${s.valor}${s.sufixo}`}
+        </div>
+        <div class="text-xs sm:text-sm text-gray-600 mt-1">{s.label}</div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const els = document.querySelectorAll('[data-count]');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        io.unobserve(entry.target);
+        const el = entry.target;
+        const target = Number(el.dataset.count);
+        const suffix = el.textContent.replace(/[0-9]/g, '');
+        const start = performance.now();
+        const duration = 900;
+        function tick(now) {
+          const p = Math.min(1, (now - start) / duration);
+          el.textContent = Math.round(target * p) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.6 });
+    els.forEach((el) => io.observe(el));
+  })();
+</script>

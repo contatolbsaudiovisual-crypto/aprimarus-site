@@ -1,0 +1,26 @@
+---
+import redes from '../data/redes.json';
+
+interface Props {
+  variante?: 'rodape' | 'claro';
+}
+const { variante = 'rodape' } = Astro.props;
+const lista = redes.filter((r) => r.url);
+const cor = variante === 'rodape'
+  ? 'text-gray-400 hover:text-white'
+  : 'text-gray-500 hover:text-primary';
+---
+
+{lista.length > 0 && (
+  <ul class="flex items-center gap-4 list-none p-0 m-0">
+    {lista.map((r) => (
+      <li>
+        <a href={r.url} target="_blank" rel="noopener noreferrer me"
+           aria-label={`Aprimarus no ${r.rede}`}
+           class={`text-2xl transition-colors ${cor}`}>
+          <i class={`ph ${r.icone}`} aria-hidden="true"></i>
+        </a>
+      </li>
+    ))}
+  </ul>
+)}

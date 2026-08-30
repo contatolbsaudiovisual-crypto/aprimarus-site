@@ -1,0 +1,115 @@
+---
+import dados from '../data/videos-destaque.json';
+
+const nf = new Intl.NumberFormat('pt-BR');
+const longos = dados.videos.filter((v) => v.formato === 'longo');
+const shorts = dados.videos.filter((v) => v.formato === 'short');
+---
+
+<section class="py-16 md:py-24 bg-foreground text-background">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="font-display text-3xl sm:text-4xl md:text-5xl uppercase mb-4">
+        Vídeos que a gente produziu e o que eles fizeram
+      </h2>
+      <p class="text-gray-300 max-w-2xl mx-auto">
+        Números do próprio YouTube, sem recorte e sem print editado.
+      </p>
+    </div>
+
+    <!-- linha 1: vídeos longos, 16:9 -->
+    <div class="grid md:grid-cols-2 gap-8 mb-8">
+      {longos.map((v) => (
+        <article class="flex flex-col">
+          <button type="button" class="yt-fachada group relative block w-full aspect-video rounded-xl overflow-hidden border border-white/10 cursor-pointer"
+                  data-id={v.id} aria-label={`Assistir: ${v.titulo}`}>
+            <img src={`/assets/videos/${v.id}.webp`} alt="" width="480" height="270" loading="lazy" decoding="async"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <span class="absolute inset-0 grid place-items-center bg-black/25 group-hover:bg-black/10 transition-colors">
+              <span class="w-14 h-14 rounded-full bg-primary grid place-items-center shadow-elegant">
+                <i class="ph-fill ph-play text-white text-2xl ml-0.5"></i>
+              </span>
+            </span>
+          </button>
+
+          <h3 class="mt-4 font-bold text-base leading-snug">{v.titulo}</h3>
+          <p class="text-sm text-gray-400 mt-1">{v.cliente} · {v.nicho} · {v.duracao}</p>
+
+          <dl class="mt-4 flex gap-6 border-t border-white/10 pt-4">
+            <div>
+              <dt class="text-[11px] uppercase tracking-wider text-gray-500">Visualizações</dt>
+              <dd class="font-display text-2xl tabular-nums">{nf.format(v.views)}</dd>
+            </div>
+            <div>
+              <dt class="text-[11px] uppercase tracking-wider text-gray-500">Comentários</dt>
+              <dd class="font-display text-2xl tabular-nums">{nf.format(v.comentarios)}</dd>
+            </div>
+          </dl>
+          <p class="text-xs text-primary mt-2 font-semibold">{v.contexto}</p>
+        </article>
+      ))}
+    </div>
+
+    <!-- linha 2: shorts, 9:16, ao lado de um bloco de texto -->
+    <div class="grid md:grid-cols-3 gap-8">
+      {shorts.map((v) => (
+        <article class="flex flex-col">
+          <button type="button" class="yt-fachada group relative block w-full aspect-[9/16] max-w-[280px] mx-auto md:mx-0 rounded-xl overflow-hidden border border-white/10 cursor-pointer"
+                  data-id={v.id} aria-label={`Assistir: ${v.titulo}`}>
+            <img src={`/assets/videos/${v.id}.webp`} alt="" width="280" height="498" loading="lazy" decoding="async"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <span class="absolute inset-0 grid place-items-center bg-black/25 group-hover:bg-black/10 transition-colors">
+              <span class="w-14 h-14 rounded-full bg-primary grid place-items-center shadow-elegant">
+                <i class="ph-fill ph-play text-white text-2xl ml-0.5"></i>
+              </span>
+            </span>
+          </button>
+
+          <h3 class="mt-4 font-bold text-base leading-snug max-w-[280px] mx-auto md:mx-0">{v.titulo}</h3>
+          <p class="text-sm text-gray-400 mt-1 max-w-[280px] mx-auto md:mx-0">{v.cliente} · {v.nicho}</p>
+
+          <dl class="mt-4 flex gap-6 border-t border-white/10 pt-4 max-w-[280px] mx-auto md:mx-0">
+            <div>
+              <dt class="text-[11px] uppercase tracking-wider text-gray-500">Visualizações</dt>
+              <dd class="font-display text-2xl tabular-nums">{nf.format(v.views)}</dd>
+            </div>
+            <div>
+              <dt class="text-[11px] uppercase tracking-wider text-gray-500">Comentários</dt>
+              <dd class="font-display text-2xl tabular-nums">{nf.format(v.comentarios)}</dd>
+            </div>
+          </dl>
+          <p class="text-xs text-primary mt-2 font-semibold max-w-[280px] mx-auto md:mx-0">{v.contexto}</p>
+        </article>
+      ))}
+
+      <div class="md:col-span-2 flex items-center">
+        <div class="border border-white/10 rounded-xl p-8 bg-white/5">
+          <p class="font-display text-2xl uppercase mb-3">O mesmo trabalho, <span class="text-primary">em formato curto</span></p>
+          <p class="text-gray-300 leading-relaxed">
+            Corte vertical do mesmo material que vira vídeo longo. Nada é gravado duas vezes: o cliente
+            grava uma vez e sai daí o vídeo do canal, o Short e o Reels.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center text-xs text-gray-500 mt-10">
+      Números conferidos em {new Date(dados.atualizadoEm + 'T12:00:00').toLocaleDateString('pt-BR')}.
+    </p>
+  </div>
+</section>
+
+<script is:inline>
+  document.querySelectorAll('.yt-fachada').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const f = document.createElement('iframe');
+      f.src = `https://www.youtube-nocookie.com/embed/${btn.dataset.id}?autoplay=1&rel=0`;
+      f.title = btn.getAttribute('aria-label');
+      f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+      f.allowFullscreen = true;
+      f.className = 'absolute inset-0 w-full h-full';
+      btn.replaceChildren(f);
+      btn.classList.add('pointer-events-none');
+    }, { once: true });
+  });
+</script>

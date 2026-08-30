@@ -19,7 +19,7 @@ const isActive = (href) => (href === '/' ? path === '/' : path.startsWith(href))
       <button type="button" onclick="openModal()" class="bg-primary text-white text-xs font-bold px-3 py-2 rounded inline-flex items-center gap-1 shadow-sm">
         <i class="ph-bold ph-whatsapp text-sm"></i> Contato
       </button>
-      <button class="text-2xl text-foreground" id="mobile-menu-btn" aria-label="Abrir menu de navegação">
+      <button class="text-2xl text-foreground" id="mobile-menu-btn" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobile-menu">
         <i class="ph ph-list"></i>
       </button>
     </div>
@@ -38,7 +38,14 @@ const isActive = (href) => (href === '/' ? path === '/' : path.startsWith(href))
 <script is:inline>
   const mobileBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
+  function setMenu(open) {
+    mobileMenu.classList.toggle('hidden', !open);
+    mobileBtn.setAttribute('aria-expanded', String(open));
+  }
   mobileBtn?.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
+    setMenu(mobileMenu.classList.contains('hidden'));
+  });
+  mobileMenu?.querySelectorAll('a, button').forEach((el) => {
+    el.addEventListener('click', () => setMenu(false));
   });
 </script>

@@ -28,15 +28,22 @@ const orgSchema = {
   url: 'https://aprimarus.com.br',
   logo: 'https://aprimarus.com.br/assets/casal.webp',
   image: 'https://aprimarus.com.br/assets/casal.webp',
-  description: 'Agência especializada em SEO, edição avançada e gestão estratégica de canais no YouTube para infoprodutores.',
+  description: 'Agência especializada em SEO, edição avançada e gestão estratégica de canais no YouTube para infoprodutores e profissionais liberais.',
   telephone: '+5519991166155',
   founder: [
     { '@type': 'Person', name: 'Leonardo Di Bartolomeo', jobTitle: 'Especialista em SEO para YouTube e Edição de Vídeo' },
     { '@type': 'Person', name: 'Veronica Di Bartolomeo', jobTitle: 'Especialista em Estratégia de Conteúdo e Criação Visual' },
   ],
   areaServed: ['BR', 'AR'],
+  availableLanguage: ['pt-BR', 'es'],
   knowsAbout: ['YouTube SEO', 'Edição de Vídeo', 'Marketing para Infoprodutores', 'Crescimento Orgânico no YouTube', 'Gestão de Tráfego Orgânico'],
   priceRange: '$$',
+  sameAs: [
+    'https://www.instagram.com/leodibarto/',
+    'https://www.youtube.com/@leonardoseoyoutube',
+    'https://www.tiktok.com/@leonardo.seoyoutube',
+    'https://www.linkedin.com/company/144741992',
+  ],
 };
 ---
 <!doctype html>
@@ -120,5 +127,12 @@ const orgSchema = {
     <!-- End Google Tag Manager -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KK5V6447"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <script is:inline>
+      const io = new IntersectionObserver((es) => {
+        es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+      }, { rootMargin: '0px 0px -12% 0px' });
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    </script>
   </body>
 </html>

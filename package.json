@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "metricas": "node --env-file=../../.env scripts/atualizar-metricas.mjs"
   },
   "dependencies": {
     "astro": "^7.1.6",

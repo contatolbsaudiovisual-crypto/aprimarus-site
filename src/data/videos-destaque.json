@@ -1,0 +1,41 @@
+{
+  "atualizadoEm": "2026-08-30",
+  "videos": [
+    {
+      "id": "oqf1Z2ESBC0",
+      "formato": "longo",
+      "titulo": "Adeus Débito Automático! Cuidado com a Nova Regra do Banco Central!",
+      "cliente": "Estefani Brito",
+      "nicho": "Educação financeira",
+      "views": 118594,
+      "comentarios": 316,
+      "curtidas": 5750,
+      "duracao": "5 min",
+      "contexto": "Num canal de 2,4 mil inscritos"
+    },
+    {
+      "id": "POEt7ui6VfI",
+      "formato": "longo",
+      "titulo": "Guia Definitivo de Peptídeos: quais valem a pena e quais evitar",
+      "cliente": "Dr. Pedro Nunes",
+      "nicho": "Nutrologia",
+      "views": 14434,
+      "comentarios": 68,
+      "curtidas": 935,
+      "duracao": "27 min",
+      "contexto": "27 minutos de tema técnico num canal de 3 mil inscritos"
+    },
+    {
+      "id": "q5QVvSbCjvc",
+      "formato": "short",
+      "titulo": "Você tá tomando Mounjaro e sentindo isso? Ninguém fala desses 3 efeitos colaterais",
+      "cliente": "Dr. Pedro Nunes",
+      "nicho": "Nutrologia",
+      "views": 79970,
+      "comentarios": 293,
+      "curtidas": 2574,
+      "duracao": "Short",
+      "contexto": "Num canal de 3 mil inscritos"
+    }
+  ]
+}
