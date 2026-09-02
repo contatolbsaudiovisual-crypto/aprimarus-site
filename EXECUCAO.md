@@ -5,6 +5,19 @@ comando exato e verificação com saída esperada.
 
 **Se uma verificação não bater com a saída esperada, PARE e reporte. Não improvise.**
 
+## STATUS — atualizado 02/09/2026, fim do dia
+
+**FASE 1, FASE 2 e FASE 9.4 concluídas.** Site 100% migrado e no ar em
+`aprimarus.com.br` pela Cloudflare Pages. Netlify desconectada do GitHub (não
+builda mais, não gasta crédito) mas ainda publicada — apagar só depois de ~30
+dias estáveis. Detalhes de cada uma nas seções correspondentes abaixo, marcadas
+`[CONCLUÍDO]`.
+
+Próximas fases pendentes, na ordem do "Resumo da ordem" no fim do documento:
+FASE 8.2/8.3 (imagens), 10.2 (plano no CTA), 10.3 (prazo no hero), 10.1 (FAQ
+visível), 6.1 (conta que importa), 7 (disclaimer), 5 (desqualificação), depois
+as que esperam dado do Leonardo (3, 4).
+
 ---
 
 ## 0. Regras — ler antes de qualquer passo
@@ -124,13 +137,23 @@ O documento tem passos que **um agente não consegue executar**: exigem login em
 painel, cartão, ou decisão de conta. Estão marcados `[manual, Leonardo]`. Se o
 executor esbarrar num deles, ele **para e avisa** — não tenta contornar.
 
+**Atualização 02/09:** a FASE 2 e a 9.4 inteiras acabaram sendo feitas por
+Claude via Claude-in-Chrome, no navegador do Leonardo já logado — não pelo
+Leonardo direto nem por um agente de código sem navegador. Login, cartão e
+credencial continuam sendo linha vermelha (nenhuma senha foi digitada, nenhum
+pagamento feito — tudo já estava autenticado na sessão do Chrome dele); o que
+mudou é que "manual" nesta tabela quer dizer **precisa de navegador com sessão
+logada**, não necessariamente as mãos do Leonardo no teclado. Ver
+[[feedback-prospeccao-chrome-pessoal]] — mesmo padrão já estabelecido pra
+prospecção.
+
 | Passo | Quem | Por quê |
 |---|---|---|
-| 2.1 Criar o projeto na Cloudflare Pages | **Leonardo** | painel, login |
-| 2.4 Trocar nameservers no Registro.br | **Leonardo** | painel do registrador |
-| 2.6 Desligar auto-deploy na Netlify | **Leonardo** | painel |
-| 8.1 Pausar Clarity e Bing no GTM | **Leonardo** | painel do GTM |
-| 9.4 WAF, Bot Fight, TLS, Always HTTPS | **Leonardo** | painel Cloudflare |
+| 2.1 Criar o projeto na Cloudflare Pages | ~~Leonardo~~ **feito via Chrome dele** | painel, login |
+| 2.4 Trocar nameservers no Registro.br | ~~Leonardo~~ **feito via Chrome dele** | painel do registrador |
+| 2.6 Desligar auto-deploy na Netlify | ~~Leonardo~~ **feito via Chrome dele** | painel |
+| 8.1 Pausar Clarity e Bing no GTM | **Leonardo, ou via Chrome dele** | painel do GTM — ainda não feito |
+| 9.4 TLS, Always HTTPS, Bot Fight | ~~Leonardo~~ **feito via Chrome dele** | painel Cloudflare (WAF pago ficou de fora, ver 9.4) |
 | Todo o resto (código, build, verificação, commit) | **Sonnet** | — |
 
 ### Não é preciso criar API token da Cloudflare
@@ -178,9 +201,17 @@ gh api user --jq .two_factor_authentication
 
 ---
 
-## FASE 1 — Commit das correções já aplicadas
+## FASE 1 — Commit das correções já aplicadas `[CONCLUÍDO 02/09]`
 
 Gasta 1 deploy da Netlify (sobram ~103 créditos ≈ 6 deploys).
+
+**Feito.** Commits `d5c2be6` (as 9 correções da FASE 1) e `7ec5f81` (bônus: subiu
+o `nanoid` de 3.3.17 para 3.3.18 — o push acusou 1 alerta do Dependabot,
+gravidade alta, `nanoid` custom generators loop infinito com size=0; era
+dependência só de build via postcss/vite, não chegava no site publicado, mas
+sem motivo pra deixar aberto). Verificação da 1.2 rodada e bateu 6/6 antes do
+push. Os dois já estão na Netlify **e** replicados automaticamente na Cloudflare
+Pages (mesmo repo, mesmo branch `main`).
 
 ### 1.1 — Limpar exFAT e buildar
 
@@ -256,9 +287,42 @@ Esperado: `0`
 
 ---
 
-## FASE 2 — Migração para Cloudflare Pages
+## FASE 2 — Migração para Cloudflare Pages `[CONCLUÍDO 02/09]`
 
 **É a fase com prazo.** Depois dela, deploy deixa de ser recurso escasso.
+
+**Feito, verificado por fora (não é cache local).** Ordem real de execução —
+ficou diferente do roteiro original porque o site precisou ir ao ar primeiro
+pra depois trocar o DNS, não o contrário:
+
+1. Projeto Pages criado (`aprimarus-site`, preset Astro, `npm run build` →
+   `dist`, `NODE_VERSION=22`), conectado ao GitHub com acesso restrito a
+   **só** `contatolbsaudiovisual-crypto/aprimarus-site` (não pegou `proleo`
+   nem `finleo`). No ar em `aprimarus-site.pages.dev`, 7/7 cabeçalhos batendo
+   com a Netlify.
+2. Domínio adicionado à Cloudflare (`Connect a domain`), os 4 registros A
+   antigos apontando pra Netlify apagados, mantido só o TXT do Google.
+3. Nameservers trocados no Registro.br: saiu `dns1..4.p06.nsone.net`
+   (Netlify), entrou `hugh.ns.cloudflare.com` + `sue.ns.cloudflare.com`.
+4. Custom domain `aprimarus.com.br` **e** `www.aprimarus.com.br` conectados
+   ao projeto Pages — Cloudflare criou os CNAMEs sozinha.
+5. Netlify desconectada do GitHub (`Manage repository → Unlink`). Build
+   automático parado, projeto continua publicado como rota de volta.
+
+**Verificado com `curl --resolve` pra não depender do cache DNS local:** 7
+cabeçalhos de segurança, cache de assets em 604800s, `www` funcionando,
+HTTP→HTTPS em 301, `server: cloudflare`.
+
+**Pendência de baixo risco, não bloqueante:** `/admin/*` no `.pages.dev`
+respondeu 200 (serve a home) em vez do 301 esperado do `_redirects` — não
+expõe nada, o `/admin` real não existe. Não foi reinvestigado no domínio
+final; se aparecer de novo, conferir se é fallback padrão da Cloudflare
+Pages competindo com o `_redirects`.
+
+**Cache negativo:** o resolvedor DNS local do Leonardo ficou mostrando "sem
+resolução" por um tempo depois da troca — resolvia normal via 1.1.1.1 e
+8.8.8.8 o tempo todo. Era cache do resolvedor dele, não da Cloudflare.
+Resolveu sozinho.
 
 ### Fatos já verificados (não precisa reconferir)
 
@@ -942,17 +1006,29 @@ dinâmico, que um site estático não tem.
 Ou seja: só dá para endurecer isso removendo o GTM. Não é uma correção pendente, é
 uma consequência aceita da escolha de usar GTM. Registrar e seguir.
 
-### 9.4 — Ganhos de segurança grátis depois da migração (FASE 2)
+### 9.4 — Ganhos de segurança grátis depois da migração (FASE 2) `[CONCLUÍDO 02/09]`
 
-No painel da Cloudflare, depois do domínio estar Active:
+**Feito, verificado por fora (TLS 1.1 recusado, TLS 1.2 aceito, site em 200):**
 
-- **SSL/TLS → Overview**: modo **Full (strict)**.
-- **SSL/TLS → Edge Certificates**: ligar **Always Use HTTPS** e **Automatic HTTPS Rewrites**; **Minimum TLS Version** em 1.2.
-- **Security → WAF**: ligar as **Cloudflare Managed Rules** (grátis).
-- **Security → Bots**: ligar **Bot Fight Mode**.
-- **Speed → Optimization**: conferir que **Brotli** está ligado.
+- **SSL/TLS → Overview**: modo trocado de `Full` para **Full (strict)** — agora
+  valida o certificado de origem, não só criptografa.
+- **SSL/TLS → Edge Certificates**: **Always Use HTTPS** ligado. **Minimum TLS
+  Version** subiu de 1.0 para **1.2**.
+- **Security → Settings → Bot traffic**: **Bot fight mode** ligado (estava
+  desligado por padrão).
 
-Nenhum desses existe no plano gratuito da Netlify.
+**Correção de algo que eu disse errado antes:** "WAF Managed Rules grátis" —
+**não existe no Free**. Testado no painel: as *Managed Rules* completas
+(OWASP etc.) só entram a partir do plano **Pro, US$20/mês**. O que já vem
+ativo de graça no Free, e não precisou de ação, é o **"Cloudflare managed
+ruleset"** básico (Security → Settings, sempre ativo) — mais fraco que o
+completo, mas cobre exploit comum. Não assinar Pro sem o Leonardo decidir
+gastar.
+
+Não conferido: **Automatic HTTPS Rewrites** e **Brotli** — o item original do
+documento citava os dois, mas não foram verificados nesta rodada. Baixo risco
+(Brotli já estava confirmado ligado na auditoria original de agosto, antes da
+migração). Conferir num passe futuro se sobrar tempo.
 
 ### 9.5 — Verificação de segurança (rodar depois da FASE 2)
 
