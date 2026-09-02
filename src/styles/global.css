@@ -80,3 +80,6 @@ body {
   .esteira { animation: none; }
   .esteira-mask { mask-image: none; }
 }
+
+/* âncora #planos do menu: o nav é fixo com 5rem de altura */
+#planos { scroll-margin-top: 5.5rem; }

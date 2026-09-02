@@ -11,6 +11,7 @@ const isActive = (href) => (href === '/' ? path === '/' : path.startsWith(href))
       <a href="/" class:list={["nav-link font-semibold hover:text-primary transition-colors", { active: isActive('/') }]}>Início</a>
       <a href="/portfolio" class:list={["nav-link font-semibold hover:text-primary transition-colors", { active: isActive('/portfolio') }]}>Portfólio</a>
       <a href="/blog" class:list={["nav-link font-semibold hover:text-primary transition-colors", { active: isActive('/blog') }]}>Blog</a>
+      <a href="/#planos" class="nav-link font-semibold hover:text-primary transition-colors">Planos</a>
       <button type="button" onclick="openModal()" class="bg-primary text-primary-foreground px-5 py-2.5 rounded-md font-semibold hover:bg-primary/90 transition-colors shadow-sm">
         Falar com a Aprimarus
       </button>
@@ -30,6 +31,7 @@ const isActive = (href) => (href === '/' ? path === '/' : path.startsWith(href))
     <a href="/" class="text-left font-semibold py-2">Início</a>
     <a href="/portfolio" class="text-left font-semibold py-2">Portfólio</a>
     <a href="/blog" class="text-left font-semibold py-2">Blog</a>
+    <a href="/#planos" class="text-left font-semibold py-2">Planos</a>
     <button type="button" onclick="openModal()" class="bg-primary text-primary-foreground px-5 py-3 rounded-md font-semibold text-center mt-2">
       Falar com a Aprimarus
     </button>

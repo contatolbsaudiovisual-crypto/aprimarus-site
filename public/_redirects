@@ -1,0 +1,4 @@
+# /admin e a página de convite do CMS não existem mais (removidos na auditoria
+# de 2026-08-27). O "!" força o redirect mesmo se houver arquivo no caminho.
+/admin/*          /   301!
+/aceitar-convite  /   301!

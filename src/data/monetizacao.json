@@ -1,0 +1,27 @@
+{
+  "_comentario": "Casos de monetização. Um item só aparece no site quando 'publicar' é true E 'imagem' existe em public/assets/. Isso impede que um caso ainda não fechado (ex: Dr. Pedro) vá ao ar por engano.",
+  "casos": [
+    {
+      "id": "canal-2k",
+      "publicar": false,
+      "cliente": "",
+      "nicho": "",
+      "inscritosNaMonetizacao": 2000,
+      "mesesAteMonetizar": null,
+      "imagem": "/assets/monetizacao-1.webp",
+      "alt": "Painel do YouTube Studio mostrando canal aprovado no Programa de Parcerias com 2 mil inscritos",
+      "contexto": "Aprovado no Programa de Parcerias do YouTube com 2 mil inscritos."
+    },
+    {
+      "id": "dr-pedro",
+      "publicar": false,
+      "cliente": "Dr. Pedro Nunes",
+      "nicho": "",
+      "inscritosNaMonetizacao": 3000,
+      "mesesAteMonetizar": null,
+      "imagem": "/assets/monetizacao-2.webp",
+      "alt": "Painel do YouTube Studio do canal do Dr. Pedro Nunes aprovado para monetização",
+      "contexto": "Em processo de monetização — só publicar depois de aprovado."
+    }
+  ]
+}

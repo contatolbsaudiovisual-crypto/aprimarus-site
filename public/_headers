@@ -1,0 +1,21 @@
+# Cabeçalhos servidos pela Cloudflare Pages (e também lidos pela Netlify, o que
+# mantém os dois hosts idênticos durante a migração). Espelha o netlify.toml.
+# Se adicionar um script/CDN externo novo, liberar o host na CSP dos dois lugares.
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  Cross-Origin-Opener-Policy: same-origin
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.clarity.ms https://c.bing.com https://i.ytimg.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com https://*.google-analytics.com https://*.clarity.ms https://c.bing.com; frame-src https://www.youtube-nocookie.com https://www.youtube.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
+
+# Imagens de public/ não têm hash no nome, então cache longo com prazo fechado:
+# trocar um arquivo propaga em no máximo 7 dias.
+/assets/*
+  Cache-Control: public, max-age=604800
+
+# Bundles do Astro já vêm com hash no nome — seguro cachear pra sempre.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
