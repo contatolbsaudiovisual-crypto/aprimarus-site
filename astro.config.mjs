@@ -6,7 +6,12 @@ const SITE_URL = 'https://aprimarus.com.br';
 
 export default defineConfig({
   site: SITE_URL,
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      // /tiktok/callback/ é rota interna de OAuth (noindex) — fora do sitemap
+      filter: (page) => !page.includes('/tiktok/'),
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },
