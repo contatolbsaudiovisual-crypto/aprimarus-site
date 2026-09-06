@@ -1428,3 +1428,57 @@ confirmados), 10.5 (não há certificação — e não se inventa).
 **Único ponto a conferir antes de publicar o FAQ:** se o contrato anual tem multa
 rescisória para saída antes dos 12 meses. Se tiver, o texto da oitava pergunta em
 10.1 está errado. Ver o aviso `[VERIFICAR ANTES DE PUBLICAR]` naquela seção.
+
+---
+
+## Registro — 06/09/2026 — Liberação de IA (GEO/AEO) + checagem de indexação
+
+**Contexto:** verificação de que o site e os blogs estão no ar e indexados no
+Google, e liberação explícita de crawlers de IA (GEO/AEO) pedida pelo Leonardo.
+
+### Site no ar — OK
+Todas as páginas respondendo 200 (com 308 → barra final): `/`, `/portfolio/`,
+`/blog/`, os 3 posts, `/privacidade/`, `/termos/`. `meta robots=index,follow` e
+`<link canonical>` corretos em todas.
+
+### O bloqueio de IA NÃO estava no código
+O `public/robots.txt` do repositório já liberava tudo. O `Disallow: /` para
+ClaudeBot/GPTBot/Google-Extended e o `Content-Signal: ai-train=no` que apareciam
+no site eram **injetados por dois recursos gerenciados da Cloudflare**
+(dash → AI Crawl Control):
+
+1. **Security → "Block AI bots"** — estava em *"Block only on pages with ads"*.
+   Alterado para **"Do not block (allow crawlers)"**. Destravou ClaudeBot,
+   Claude-User, GPTBot, Amazonbot, Anchor Browser.
+2. **Signals → "Managed robots.txt"** — estava **ON** (sobrescrevia o robots.txt
+   do repo com `ai-train=no` + `Disallow` para bots de IA). **Desligado.** O
+   status do robots.txt passou de "Cloudflare Managed" para "200 OK" — agora
+   serve o arquivo do repositório.
+
+⚠️ Se esses toggles forem religados no painel da Cloudflare, o robots.txt volta
+a bloquear IA.
+
+### Alterações de código (commit 47e97b9)
+- `public/robots.txt` reescrito: `Content-Signal: search=yes, ai-input=yes,
+  ai-train=yes, use=full` + `Allow: /` explícito para GPTBot, OAI-SearchBot,
+  ChatGPT-User, ClaudeBot, Claude-Web, anthropic-ai, PerplexityBot,
+  Perplexity-User, Google-Extended, Google-CloudVertexBot, Applebot,
+  Applebot-Extended, Amazonbot, meta-externalagent, cohere-ai.
+- `astro.config.mjs`: `sitemap()` agora filtra `/tiktok/` — `/tiktok/callback/`
+  (rota interna de OAuth, já `noindex`) saiu do sitemap. Sitemap agora com 8 URLs.
+
+Verificado ao vivo após o deploy: `https://aprimarus.com.br/robots.txt` serve o
+arquivo do repo, sem nenhum bloqueio de IA.
+
+### Indexação no Google (Search Console — sc-domain:aprimarus.com.br)
+Estado em 06/09: **6 indexadas, 6 não indexadas.**
+
+Das 6 não indexadas:
+- 3 — "Página com redirecionamento" (versões sem barra final, 308) — esperado.
+- 1 — "Excluída pela tag noindex" (`/tiktok/callback/`) — intencional.
+- 2 — "Detectada, mas não indexada no momento":
+  - `https://aprimarus.com.br/portfolio/`
+  - `https://aprimarus.com.br/blog/a-mentira-de-postar-todo-dia-no-youtube/`
+
+**Ação:** solicitada indexação manual das 2 URLs pelo Search Console (fila de
+rastreamento prioritário). Acompanhar nos próximos dias em Indexação → Páginas.
